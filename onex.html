@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onex in Termux - Installation and Usage Guide</title>
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --text-color: #c0c0c0;
+            --accent-color: #39FF14;
+            --header-bg: #1a1a1a;
+            --code-bg: #000000;
+            --border-color: #333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 2px solid var(--accent-color);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+            font-family: monospace;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 20px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 40px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin: 25px 0 10px 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        strong {
+            color: #ffffff;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+        }
+
+        .code-block {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin: 20px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .code-block-header {
+            background-color: #252525;
+            padding: 8px 15px;
+            font-size: 0.75rem;
+            color: #888;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            font-family: monospace;
+        }
+
+        .copy-label {
+            color: var(--accent-color);
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            border: 1px solid var(--accent-color);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        pre {
+            padding: 15px;
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            color: var(--accent-color);
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+            list-style-type: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background-color: #222;
+            color: var(--accent-color);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--header-bg);
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+            }
+            .logo {
+                margin-bottom: 10px;
+            }
+            nav a {
+                margin: 0 10px;
+                font-size: 0.8rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">TERMUX HUB</div>
+    <nav>
+        <a href="index.html">[ HOME ]</a>
+        <a href="#">[ REPOS ]</a>
+        <a href="#">[ SHELL ]</a>
+        <a href="#">[ ABOUT ]</a>
+    </nav>
+</header>
+
+<main>
+    <article>
+        <h1>Onex in Termux - Installation and Usage Guide</h1>
+        
+        <section>
+            <h2>Introduction to Onex</h2>
+            <p><strong>Onex</strong> is an automated library of hacking tools for the Termux terminal emulator. It provides access to over 370+ penetration testing and security research tools, acting as a specialized package manager for security professionals. Instead of manually searching and cloning GitHub repositories, Onex streamlines the entire process, allowing you to <span class="highlight">install, search, and manage</span> advanced tools with simple commands.</p>
+        </section>
+
+        <section>
+            <h2>Prerequisites</h2>
+            <p>Ensure your Termux environment is up-to-date and has the necessary permissions:</p>
+            <ul>
+                <li><strong>Latest Version:</strong> Use Termux from F-Droid for full package support.</li>
+                <li><strong>Storage:</strong> Run <code>termux-setup-storage</code> to allow file access.</li>
+                <li><strong>Stable Network:</strong> Essential for cloning repositories and fetching dependencies.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Installation Commands</h2>
+            <p>Follow these terminal commands in order to set up Onex correctly on your device.</p>
+
+            <h3>1. Update Package Index</h3>
+            <p>Always start by ensuring your local package lists are synchronized.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>pkg update -y && pkg upgrade -y</pre>
+            </div>
+
+            <h3>2. Install Git</h3>
+            <p>Git is required to clone the official Onex repository.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>pkg install git -y</pre>
+            </div>
+
+            <h3>3. Clone the Source</h3>
+            <p>Download the Onex installation script from GitHub.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>git clone https://github.com/rajkumardusad/onex.git</pre>
+            </div>
+
+            <h3>4. Grant Permissions</h3>
+            <p>Navigate to the directory and make the script executable.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>cd onex && chmod +x onex</pre>
+            </div>
+
+            <h3>5. Launch the Tool</h3>
+            <p>Execute the tool to begin using the library.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>./onex</pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>Usage</h2>
+            <p>Once Onex is running, you can use the following commands within its interface or directly from your shell if integrated.</p>
+
+            <h3>Main Interface</h3>
+            <p>Simply type <code>onex</code> to open the main menu and browse categories.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>onex</pre>
+            </div>
+
+            <h3>Install a Specific Tool</h3>
+            <p>Example: To install <code>nmap</code> through Onex.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>onex install nmap</pre>
+            </div>
+
+            <h3>Search for Tools</h3>
+            <p>Quickly find if a tool exists in the library.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>onex search [tool_name]</pre>
+            </div>
+        </section>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
+    <p>Disclaimer: This tutorial is for educational purposes only. Stay ethical and always respect privacy.</p>
+</footer>
+
+</body>
+</html>

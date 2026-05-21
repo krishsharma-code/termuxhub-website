@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John the Ripper in Termux - Complete Installation and Usage Guide</title>
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --text-color: #c0c0c0;
+            --accent-color: #39FF14;
+            --header-bg: #1a1a1a;
+            --code-bg: #000000;
+            --border-color: #333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 2px solid var(--accent-color);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 20px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 40px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin: 25px 0 10px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        strong {
+            color: #ffffff;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+        }
+
+        .code-block {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin: 20px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .code-block-header {
+            background-color: #252525;
+            padding: 8px 15px;
+            font-size: 0.75rem;
+            color: #888;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            font-family: monospace;
+        }
+
+        .copy-label {
+            color: var(--accent-color);
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            border: 1px solid var(--accent-color);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        pre {
+            padding: 15px;
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            color: var(--accent-color);
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+            list-style-type: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background-color: #222;
+            color: var(--accent-color);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--header-bg);
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+            }
+            .logo {
+                margin-bottom: 10px;
+            }
+            nav a {
+                margin: 0 10px;
+                font-size: 0.8rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Termux_Nexus</div>
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="nmap.html">NMAP</a>
+        <a href="#">SECURITY</a>
+        <a href="#">ABOUT</a>
+    </nav>
+</header>
+
+<main>
+    <article>
+        <h1>John the Ripper in Termux - Complete Installation and Usage Guide</h1>
+        
+        <section>
+            <h2>What is johntheripper</h2>
+            <p><strong>John the Ripper</strong> is a free password cracking software tool. Originally developed for the Unix operating system, it can run on fifteen different platforms. It is one of the most popular password testing and breaking programs as it combines a number of password crackers into one package, autodetects password hash types, and includes a customizable cracker. In Termux, it allows you to <span class="highlight">audit password security and perform brute-force or dictionary attacks</span> on various hash formats.</p>
+        </section>
+
+        <section>
+            <h2>Prerequisites</h2>
+            <p>Ensure your Termux environment is ready for password auditing:</p>
+            <ul>
+                <li><strong>Storage Access:</strong> Essential for loading wordlists (dictionaries).</li>
+                <li><strong>Processing Power:</strong> Cracking is CPU-intensive; ensure your device is charged.</li>
+                <li><strong>Wordlists:</strong> You will need a wordlist file (like rockyou.txt) for dictionary attacks.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Installation Commands in Termux</h2>
+            <p>Follow these commands to install John the Ripper on your Android device.</p>
+
+            <h3>1. Update Environment</h3>
+            <p>Refresh your repository index to get the latest package versions.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>pkg update && pkg upgrade -y</pre>
+            </div>
+
+            <h3>2. Install John</h3>
+            <p>Install the John the Ripper package from the official Termux repo.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>pkg install john -y</pre>
+            </div>
+
+            <h3>3. Confirm Installation</h3>
+            <p>Run the command without arguments to see the help menu and verify setup.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>john</pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>Basic Usage & Examples</h2>
+            <p>Here are common ways to use John the Ripper in your mobile terminal.</p>
+
+            <h3>Simple Crack (Single Crack Mode)</h3>
+            <p>Let John try to crack a hash file using its default smart rules.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>john hash_file.txt</pre>
+            </div>
+
+            <h3>Dictionary Attack</h3>
+            <p>Use a specific wordlist (like <code>rockyou.txt</code>) against a hash file.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>john --wordlist=rockyou.txt hash_file.txt</pre>
+            </div>
+
+            <h3>Show Cracked Passwords</h3>
+            <p>Display the passwords that have been successfully cracked from a file.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>john --show hash_file.txt</pre>
+            </div>
+            
+            <h3>Incremental Mode (Brute Force)</h3>
+            <p>Try every possible character combination (can take a long time).</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>john --incremental hash_file.txt</pre>
+            </div>
+        </section>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; 2026 Termux Nexus. All rights reserved.</p>
+    <p>Disclaimer: This tutorial is for educational purposes only. Stay ethical and always have permission before testing any password security.</p>
+</footer>
+
+</body>
+</html>

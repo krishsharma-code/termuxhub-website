@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apache in Termux - Complete Installation and Usage Guide</title>
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --text-color: #c0c0c0;
+            --accent-color: #39FF14;
+            --header-bg: #1a1a1a;
+            --code-bg: #000000;
+            --border-color: #333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 2px solid var(--accent-color);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 20px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            font-size: 1.8rem;
+            margin: 40px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin: 25px 0 10px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        strong {
+            color: #ffffff;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+        }
+
+        .code-block {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin: 20px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .code-block-header {
+            background-color: #252525;
+            padding: 8px 15px;
+            font-size: 0.75rem;
+            color: #888;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            font-family: monospace;
+        }
+
+        .copy-label {
+            color: var(--accent-color);
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            border: 1px solid var(--accent-color);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        pre {
+            padding: 15px;
+            font-family: 'Fira Code', 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+            color: var(--accent-color);
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+            list-style-type: square;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        code {
+            background-color: #222;
+            color: var(--accent-color);
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--header-bg);
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+            }
+            .logo {
+                margin-bottom: 10px;
+            }
+            nav a {
+                margin: 0 10px;
+                font-size: 0.8rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Termux_Nexus</div>
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="nmap.html">NMAP</a>
+        <a href="john.html">JOHN</a>
+        <a href="subfinder.html">SUBFINDER</a>
+    </nav>
+</header>
+
+<main>
+    <article>
+        <h1>Apache in Termux - Complete Installation and Usage Guide</h1>
+        
+        <section>
+            <h2>What is apache</h2>
+            <p><strong>Apache HTTP Server</strong> is a free and open-source cross-platform web server software. It is one of the oldest and most reliable web servers in the world, powering a significant portion of the internet. In Termux, Apache allows you to <span class="highlight">host local websites, test web applications, and create a mobile development environment</span> directly on your Android device.</p>
+        </section>
+
+        <section>
+            <h2>Prerequisites</h2>
+            <p>Before installing Apache, ensure your Termux environment is ready:</p>
+            <ul>
+                <li><strong>Storage Permission:</strong> Useful if you want to host files from your internal storage.</li>
+                <li><strong>Port Awareness:</strong> By default, Termux services cannot use ports below 1024 without root. Apache in Termux typically uses port 8080.</li>
+                <li><strong>Stable Internet:</strong> Required for downloading the initial package.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Installation Commands in Termux</h2>
+            <p>Follow these steps to set up the Apache (httpd) package.</p>
+
+            <h3>1. Update Repositories</h3>
+            <p>Ensure your package list is current.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>pkg update && pkg upgrade -y</pre>
+            </div>
+
+            <h3>2. Install Apache (httpd)</h3>
+            <p>Install the <code>apache2</code> package (sometimes referred to as <code>httpd</code> in other distros).</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>pkg install apache2 -y</pre>
+            </div>
+
+            <h3>3. Start the Server</h3>
+            <p>Launch the Apache daemon.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>apachectl start</pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>Basic Usage & Examples</h2>
+            <p>Once started, your server is live. Here is how to manage it and locate your files.</p>
+
+            <h3>Accessing the Default Page</h3>
+            <p>Open your browser and navigate to the local host address.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>URL - BROWSER</span>
+                    <span class="copy-label">COPY URL</span>
+                </div>
+                <pre>http://localhost:8080</pre>
+            </div>
+
+            <h3>Locating Web Files</h3>
+            <p>In Termux, the default document root where you should place your HTML files is:</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>PATH - TERMINAL</span>
+                    <span class="copy-label">COPY PATH</span>
+                </div>
+                <pre>/data/data/com.termux/files/usr/share/apache2/default-site/htdocs/</pre>
+            </div>
+
+            <h3>Stopping the Server</h3>
+            <p>Kill the Apache process when you are finished testing.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>apachectl stop</pre>
+            </div>
+            
+            <h3>Restarting for Configuration Changes</h3>
+            <p>Apply changes made to the <code>httpd.conf</code> file.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>apachectl restart</pre>
+            </div>
+        </section>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; 2026 Termux Nexus. All rights reserved.</p>
+    <p>Disclaimer: This tutorial is for educational purposes only. Secure your server before exposing it to any external network.</p>
+</footer>
+
+</body>
+</html>

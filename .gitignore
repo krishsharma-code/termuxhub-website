@@ -1,0 +1,9 @@
+# Local Netlify folder
+.netlify
+
+# Standard ignore rules
+node_modules/
+.env
+.DS_Store
+dist/
+build/
