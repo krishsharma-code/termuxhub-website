@@ -4,213 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>John the Ripper in Termux - Complete Installation and Usage Guide</title>
-    <style>
-        :root {
-            --bg-color: #0d0d0d;
-            --text-color: #c0c0c0;
-            --accent-color: #39FF14;
-            --header-bg: #1a1a1a;
-            --code-bg: #000000;
-            --border-color: #333;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            padding-bottom: 50px;
-        }
-
-        header {
-            background-color: var(--header-bg);
-            border-bottom: 2px solid var(--accent-color);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-
-        .logo {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--accent-color);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        nav a:hover {
-            color: var(--accent-color);
-        }
-
-        main {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        h1 {
-            color: var(--accent-color);
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            border-left: 4px solid var(--accent-color);
-            padding-left: 20px;
-        }
-
-        h2 {
-            color: var(--accent-color);
-            font-size: 1.8rem;
-            margin: 40px 0 15px 0;
-            padding-bottom: 10px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        h3 {
-            color: #ffffff;
-            font-size: 1.3rem;
-            margin: 25px 0 10px 0;
-        }
-
-        p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
-
-        strong {
-            color: #ffffff;
-        }
-
-        .highlight {
-            color: var(--accent-color);
-        }
-
-        .code-block {
-            background-color: var(--code-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            margin: 20px 0;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .code-block-header {
-            background-color: #252525;
-            padding: 8px 15px;
-            font-size: 0.75rem;
-            color: #888;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
-            font-family: monospace;
-        }
-
-        .copy-label {
-            color: var(--accent-color);
-            cursor: pointer;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            border: 1px solid var(--accent-color);
-            padding: 2px 6px;
-            border-radius: 3px;
-        }
-
-        pre {
-            padding: 15px;
-            font-family: 'Fira Code', 'Courier New', Courier, monospace;
-            font-size: 0.95rem;
-            color: var(--accent-color);
-            overflow-x: auto;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-
-        ul {
-            margin-left: 25px;
-            margin-bottom: 20px;
-            list-style-type: square;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        code {
-            background-color: #222;
-            color: var(--accent-color);
-            padding: 2px 5px;
-            border-radius: 3px;
-            font-family: monospace;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
-            border-top: 1px solid var(--border-color);
-            background-color: var(--header-bg);
-        }
-
-        footer p {
-            font-size: 0.85rem;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        @media (max-width: 600px) {
-            header {
-                flex-direction: column;
-                padding: 15px;
-            }
-            .logo {
-                margin-bottom: 10px;
-            }
-            nav a {
-                margin: 0 10px;
-                font-size: 0.8rem;
-            }
-            h1 {
-                font-size: 1.8rem;
-            }
-            h2 {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10b981">
+    <link rel="stylesheet" href="astra-theme.css">
 </head>
 <body>
 
 <header>
-    <div class="logo">Termux_Nexus</div>
+    <div class="logo">TERMUX HUB</div>
     <nav>
         <a href="index.html">HOME</a>
         <a href="nmap.html">NMAP</a>
         <a href="#">SECURITY</a>
         <a href="#">ABOUT</a>
-    </nav>
+        <button id="installAppBtn" style="display:none; background:#10b981; color: var(--text-color); border:none; padding:8px 15px; border-radius:20px; cursor:pointer; font-weight:bold; margin-left:10px;">⬇️ Install App</button>
+</nav>
 </header>
+<div class="tool-banner"><h1>John the Ripper</h1><p>Terminal Guide & Documentation</p></div>
 
 <main>
     <article>
@@ -314,9 +125,48 @@
 </main>
 
 <footer>
-    <p>&copy; 2026 Termux Nexus. All rights reserved.</p>
+    <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
     <p>Disclaimer: This tutorial is for educational purposes only. Stay ethical and always have permission before testing any password security.</p>
 </footer>
 
+<script>
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js');
+        });
+    }
+
+    // PWA Install Logic
+    let deferredPrompt;
+    const installBtn = document.getElementById('installAppBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        // Update UI notify the user they can add to home screen
+        if (installBtn) installBtn.style.display = 'inline-block';
+    });
+
+    if (installBtn) {
+        installBtn.addEventListener('click', (e) => {
+            // hide our user interface that shows our A2HS button
+            installBtn.style.display = 'none';
+            // Show the prompt
+            deferredPrompt.prompt();
+            // Wait for the user to respond to the prompt
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the A2HS prompt');
+                } else {
+                    console.log('User dismissed the A2HS prompt');
+                }
+                deferredPrompt = null;
+            });
+        });
+    }
+</script>
 </body>
 </html>

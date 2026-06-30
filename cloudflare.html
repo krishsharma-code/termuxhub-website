@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Install and Use Apache on Termux - Complete Guide 2026</title>
-    <meta name="description" content="Step by step guide on how to install and use Apache on Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
-    <meta name="keywords" content="Termux, Android hacking tools, Apache, no root, security tutorial, 2026, cybersecurity">
+    <title>How to Install and Use Cloudflare on Termux - Complete Guide 2026</title>
+    <meta name="description" content="Step by step guide on how to install and use Cloudflare on Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
+    <meta name="keywords" content="Termux, Android hacking tools, Cloudflare, no root, security tutorial, 2026, cybersecurity">
     
     <!-- Google Fonts -->
     
@@ -19,7 +19,6 @@
 <div id="reading-progress" style="position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: #10b981; z-index: 9999; box-shadow: 0 0 10px #10b981; transition: width 0.1s ease;"></div>
 
 <header>
-    <div class="logo">TERMUX HUB</div>
     <nav>
         <a href="index.html">HOME</a>
         <a href="cheatsheet.html">CHEATSHEET</a>
@@ -27,105 +26,95 @@
     <button id="installAppBtn" style="display:none; background:#10b981; color: var(--text-color); border:none; padding:8px 15px; border-radius:20px; cursor:pointer; font-weight:bold; margin-left:10px;">⬇️ Install App</button><button id="theme-toggle" style="background: #10b981; color: var(--text-color); border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; margin-left: 10px; transition: 0.2s;">🌓 Theme</button></nav>
     <div id="google_translate_element"></div>
 </header>
-<div class="tool-banner"><h1>Apache</h1><p>Terminal Guide & Documentation</p></div>
+<div class="tool-banner"><h1>Cloudflare</h1><p>Terminal Guide & Documentation</p></div>
 
 <main>
     <article>
-        <h1>Apache in Termux - Complete Installation and Usage Guide</h1>
+        <h1>Cloudflare in Termux: Basic Commands & Usage</h1>
         
         <section>
-            <h2>What is apache</h2>
-            <p><strong>Apache HTTP Server</strong> is a free and open-source cross-platform web server software. It is one of the oldest and most reliable web servers in the world, powering a significant portion of the internet. In Termux, Apache allows you to <span class="highlight">host local websites, test web applications, and create a mobile development environment</span> directly on your Android device.</p>
+            <h2>Introduction</h2>
+            <p><strong>Cloudflare Tunnels</strong> (formerly Argo Tunnel) provide a secure way to connect your local Termux servers to the public internet without the need for router port forwarding or public IP addresses. By running the <code>cloudflared</code> daemon, you can create encrypted tunnels that route traffic through Cloudflare's global network, ensuring high security and stability for your web applications.</p>
         </section>
 
         <section>
-            <h2>Prerequisites</h2>
-            <p>Before installing Apache, ensure your Termux environment is ready:</p>
-            <ul>
-                <li><strong>Storage Permission:</strong> Useful if you want to host files from your internal storage.</li>
-                <li><strong>Port Awareness:</strong> By default, Termux services cannot use ports below 1024 without root. Apache in Termux typically uses port 8080.</li>
-                <li><strong>Stable Internet:</strong> Required for downloading the initial package.</li>
-            </ul>
-        </section>
+            <h2>Installation</h2>
+            <p>Ensure your Termux environment is updated before installing the Cloudflare daemon.</p>
 
-        <section>
-            <h2>Installation Commands in Termux</h2>
-            <p>Follow these steps to set up the Apache (httpd) package.</p>
-
-            <h3>1. Update Repositories</h3>
-            <p>Ensure your package list is current.</p>
+            <h3>1. Update and Upgrade Packages</h3>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
                 <pre>pkg update && pkg upgrade -y</pre>
             </div>
 
-            <h3>2. Install Apache (httpd)</h3>
-            <p>Install the <code>apache2</code> package (sometimes referred to as <code>httpd</code> in other distros).</p>
+            <h3>2. Install Cloudflared</h3>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>pkg install apache2 -y</pre>
+                <pre>pkg install cloudflared -y</pre>
             </div>
 
-            <h3>3. Start the Server</h3>
-            <p>Launch the Apache daemon.</p>
+            <h3>3. Verify Installation</h3>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>apachectl start</pre>
+                <pre>cloudflared --version</pre>
             </div>
         </section>
 
         <section>
-            <h2>Basic Usage & Examples</h2>
-            <p>Once started, your server is live. Here is how to manage it and locate your files.</p>
+            <h2>Quick Tunnels (Temporary)</h2>
+            <p>Quick tunnels are the fastest way to expose a local port. They generate a random <code>trycloudflare.com</code> URL and do not require a Cloudflare account.</p>
 
-            <h3>Accessing the Default Page</h3>
-            <p>Open your browser and navigate to the local host address.</p>
+            <h3>Expose Local Ports</h3>
+            <p>Run these commands depending on your local server's port:</p>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>URL - BROWSER</span>
-                    <span class="copy-label">COPY URL</span>
-                </div>
-                <pre>http://localhost:8080</pre>
-            </div>
+                <pre># For a Python Server (Port 8080)
+cloudflared tunnel --url http://localhost:8080
 
-            <h3>Locating Web Files</h3>
-            <p>In Termux, the default document root where you should place your HTML files is:</p>
-            <div class="code-block">
-                <div class="code-block-header">
-                    <span>PATH - TERMINAL</span>
-                    <span class="copy-label">COPY PATH</span>
-                </div>
-                <pre>/data/data/com.termux/files/usr/share/apache2/default-site/htdocs/</pre>
+# For an Apache Server (Port 80)
+cloudflared tunnel --url http://localhost:80
+
+# For Node.js/NodeREPL (Port 3000)
+cloudflared tunnel --url http://localhost:3000</pre>
             </div>
 
-            <h3>Stopping the Server</h3>
-            <p>Kill the Apache process when you are finished testing.</p>
+            <h3>Force IPv4 Mode</h3>
+            <p>If you encounter connectivity issues, you can force the tunnel to use IPv4:</p>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>apachectl stop</pre>
+                <pre>cloudflared tunnel --url http://localhost:8080 --edge-ip-version 4</pre>
             </div>
-            
-            <h3>Restarting for Configuration Changes</h3>
-            <p>Apply changes made to the <code>httpd.conf</code> file.</p>
+        </section>
+
+        <section>
+            <h2>Named Tunnels (Permanent)</h2>
+            <p>Named tunnels offer more stability and allow you to use your own custom domains. These require a Cloudflare account.</p>
+
+            <h3>1. Login to Cloudflare</h3>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>apachectl restart</pre>
+                <pre>cloudflared tunnel login</pre>
             </div>
+
+            <h3>2. Create a Named Tunnel</h3>
+            <div class="code-block">
+                <pre>cloudflared tunnel create &lt;tunnel_name&gt;</pre>
+            </div>
+
+            <h3>3. Management Commands</h3>
+            <div class="code-block">
+                <pre># List all tunnels
+cloudflared tunnel list
+
+# Run a named tunnel
+cloudflared tunnel run &lt;tunnel_name&gt;
+
+# Delete a tunnel
+cloudflared tunnel delete &lt;tunnel_name&gt;</pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>Key Tips</h2>
+            <ul>
+                <li><strong>Local Server:</strong> You must have a local server running (e.g., Python, PHP, or Node.js) before the tunnel can route traffic to it.</li>
+                <li><strong>Security:</strong> Tunnels provide automatic HTTPS, encrypting data between Cloudflare and the end user.</li>
+                <li><strong>Stopping:</strong> Press <code>CTRL + C</code> to terminate the tunnel session.</li>
+            </ul>
         </section>
     </article>
 </main>
@@ -151,7 +140,6 @@
 
 <footer>
     <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
-    <p>Disclaimer: This tutorial is for educational purposes only. Secure your server before exposing it to any external network.</p>
 </footer>
 
 

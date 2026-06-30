@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Install and Use Apache on Termux - Complete Guide 2026</title>
-    <meta name="description" content="Step by step guide on how to install and use Apache on Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
-    <meta name="keywords" content="Termux, Android hacking tools, Apache, no root, security tutorial, 2026, cybersecurity">
+    <title>How to Install and Use Geo Recon on Termux - Complete Guide 2026</title>
+    <meta name="description" content="Step by step guide on how to install and use Geo Recon on Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
+    <meta name="keywords" content="Termux, Android hacking tools, Geo Recon, no root, security tutorial, 2026, cybersecurity">
     
     <!-- Google Fonts -->
     
@@ -27,104 +27,99 @@
     <button id="installAppBtn" style="display:none; background:#10b981; color: var(--text-color); border:none; padding:8px 15px; border-radius:20px; cursor:pointer; font-weight:bold; margin-left:10px;">⬇️ Install App</button><button id="theme-toggle" style="background: #10b981; color: var(--text-color); border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; margin-left: 10px; transition: 0.2s;">🌓 Theme</button></nav>
     <div id="google_translate_element"></div>
 </header>
-<div class="tool-banner"><h1>Apache</h1><p>Terminal Guide & Documentation</p></div>
+<div class="tool-banner"><h1>Geo-Recon</h1><p>Terminal Guide & Documentation</p></div>
 
 <main>
     <article>
-        <h1>Apache in Termux - Complete Installation and Usage Guide</h1>
+        <h1>Geo-Recon Installation & Usage</h1>
         
-        <section>
-            <h2>What is apache</h2>
-            <p><strong>Apache HTTP Server</strong> is a free and open-source cross-platform web server software. It is one of the oldest and most reliable web servers in the world, powering a significant portion of the internet. In Termux, Apache allows you to <span class="highlight">host local websites, test web applications, and create a mobile development environment</span> directly on your Android device.</p>
-        </section>
+        <p><span class="highlight">Geo-Recon</span> is a powerful OSINT reconnaissance tool designed for geolocation. It allows security researchers and auditors to gather detailed IP geolocation information, network data, and perform Nmap-integrated scanning directly from the Termux terminal.</p>
 
         <section>
             <h2>Prerequisites</h2>
-            <p>Before installing Apache, ensure your Termux environment is ready:</p>
+            <p>Before installing Geo-Recon, ensure your Termux environment is updated and have the following tools installed:</p>
             <ul>
-                <li><strong>Storage Permission:</strong> Useful if you want to host files from your internal storage.</li>
-                <li><strong>Port Awareness:</strong> By default, Termux services cannot use ports below 1024 without root. Apache in Termux typically uses port 8080.</li>
-                <li><strong>Stable Internet:</strong> Required for downloading the initial package.</li>
+                <li>Nmap (for network scanning)</li>
+                <li>Git (for cloning the repository)</li>
+                <li>Python 3 (for running the tool)</li>
             </ul>
         </section>
 
         <section>
-            <h2>Installation Commands in Termux</h2>
-            <p>Follow these steps to set up the Apache (httpd) package.</p>
+            <h2>Installation Commands</h2>
+            <p>Follow these steps to set up Geo-Recon on your device.</p>
 
             <h3>1. Update Repositories</h3>
-            <p>Ensure your package list is current.</p>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">BASH</span>
                 </div>
                 <pre>pkg update && pkg upgrade -y</pre>
             </div>
 
-            <h3>2. Install Apache (httpd)</h3>
-            <p>Install the <code>apache2</code> package (sometimes referred to as <code>httpd</code> in other distros).</p>
+            <h3>2. Install Dependencies</h3>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">INSTALL</span>
                 </div>
-                <pre>pkg install apache2 -y</pre>
+                <pre>pkg install nmap git python -y</pre>
             </div>
 
-            <h3>3. Start the Server</h3>
-            <p>Launch the Apache daemon.</p>
+            <h3>3. Clone and Setup</h3>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">CLONE</span>
                 </div>
-                <pre>apachectl start</pre>
+                <pre>git clone https://github.com/radioactivetobi/geo-recon
+cd geo-recon
+pip install colorama requests</pre>
             </div>
         </section>
 
         <section>
-            <h2>Basic Usage & Examples</h2>
-            <p>Once started, your server is live. Here is how to manage it and locate your files.</p>
+            <h2>Usage Examples</h2>
+            <p>Geo-Recon provides various options for IP and URL reconnaissance.</p>
 
-            <h3>Accessing the Default Page</h3>
-            <p>Open your browser and navigate to the local host address.</p>
+            <h3>Launch the Tool</h3>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>URL - BROWSER</span>
-                    <span class="copy-label">COPY URL</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">START</span>
                 </div>
-                <pre>http://localhost:8080</pre>
+                <pre>python geo-recon.py</pre>
             </div>
 
-            <h3>Locating Web Files</h3>
-            <p>In Termux, the default document root where you should place your HTML files is:</p>
+            <h3>Reconnaissance by IP</h3>
+            <p>Gather geolocation details for a specific target IP:</p>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>PATH - TERMINAL</span>
-                    <span class="copy-label">COPY PATH</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">IP RECON</span>
                 </div>
-                <pre>/data/data/com.termux/files/usr/share/apache2/default-site/htdocs/</pre>
+                <pre>python3 geo-recon.py &lt;target_ip&gt;</pre>
             </div>
 
-            <h3>Stopping the Server</h3>
-            <p>Kill the Apache process when you are finished testing.</p>
+            <h3>Nmap-Integrated Scan</h3>
+            <p>Perform an IP scan with Nmap integration for deeper insights:</p>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">NMAP SCAN</span>
                 </div>
-                <pre>apachectl stop</pre>
+                <pre>python3 geo-recon.py &lt;target_ip&gt; -n</pre>
             </div>
-            
-            <h3>Restarting for Configuration Changes</h3>
-            <p>Apply changes made to the <code>httpd.conf</code> file.</p>
+
+            <h3>Localhost Recon</h3>
+            <p>Check information for your own connection:</p>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">LOCAL RECON</span>
                 </div>
-                <pre>apachectl restart</pre>
+                <pre>python3 geo-recon.py localhost</pre>
             </div>
         </section>
     </article>
@@ -150,8 +145,7 @@
 </section>
 
 <footer>
-    <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
-    <p>Disclaimer: This tutorial is for educational purposes only. Secure your server before exposing it to any external network.</p>
+    <p>© 2026 TERMUX HUB. All rights reserved.</p>
 </footer>
 
 

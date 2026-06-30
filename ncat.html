@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Install and Use Apache on Termux - Complete Guide 2026</title>
-    <meta name="description" content="Step by step guide on how to install and use Apache on Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
-    <meta name="keywords" content="Termux, Android hacking tools, Apache, no root, security tutorial, 2026, cybersecurity">
+    <title>How to Install and Use Ncat on Termux - Complete Guide 2026</title>
+    <meta name="description" content="Step by step guide on how to install and use Ncat on Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
+    <meta name="keywords" content="Termux, Android hacking tools, Ncat, no root, security tutorial, 2026, cybersecurity">
     
     <!-- Google Fonts -->
     
@@ -27,104 +27,104 @@
     <button id="installAppBtn" style="display:none; background:#10b981; color: var(--text-color); border:none; padding:8px 15px; border-radius:20px; cursor:pointer; font-weight:bold; margin-left:10px;">⬇️ Install App</button><button id="theme-toggle" style="background: #10b981; color: var(--text-color); border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; margin-left: 10px; transition: 0.2s;">🌓 Theme</button></nav>
     <div id="google_translate_element"></div>
 </header>
-<div class="tool-banner"><h1>Apache</h1><p>Terminal Guide & Documentation</p></div>
+<div class="tool-banner"><h1>Ncat</h1><p>Terminal Guide & Documentation</p></div>
 
 <main>
     <article>
-        <h1>Apache in Termux - Complete Installation and Usage Guide</h1>
+        <h1>Ncat Installation & Usage in Termux</h1>
         
-        <section>
-            <h2>What is apache</h2>
-            <p><strong>Apache HTTP Server</strong> is a free and open-source cross-platform web server software. It is one of the oldest and most reliable web servers in the world, powering a significant portion of the internet. In Termux, Apache allows you to <span class="highlight">host local websites, test web applications, and create a mobile development environment</span> directly on your Android device.</p>
-        </section>
+        <p><span class="highlight">Ncat</span> is widely considered the 'Swiss Army Knife' of networking. It allows you to read, write, and redirect data across networks in Termux, making it an essential tool for debugging, testing, and transferring data.</p>
 
         <section>
-            <h2>Prerequisites</h2>
-            <p>Before installing Apache, ensure your Termux environment is ready:</p>
-            <ul>
-                <li><strong>Storage Permission:</strong> Useful if you want to host files from your internal storage.</li>
-                <li><strong>Port Awareness:</strong> By default, Termux services cannot use ports below 1024 without root. Apache in Termux typically uses port 8080.</li>
-                <li><strong>Stable Internet:</strong> Required for downloading the initial package.</li>
-            </ul>
-        </section>
+            <h2>Installation Commands</h2>
+            <p>Ncat is part of the <code>nmap</code> package. Follow these steps to install it in Termux.</p>
 
-        <section>
-            <h2>Installation Commands in Termux</h2>
-            <p>Follow these steps to set up the Apache (httpd) package.</p>
-
-            <h3>1. Update Repositories</h3>
-            <p>Ensure your package list is current.</p>
+            <h3>1. Update Packages</h3>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">BASH</span>
                 </div>
                 <pre>pkg update && pkg upgrade -y</pre>
             </div>
 
-            <h3>2. Install Apache (httpd)</h3>
-            <p>Install the <code>apache2</code> package (sometimes referred to as <code>httpd</code> in other distros).</p>
+            <h3>2. Install Nmap</h3>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">INSTALL</span>
                 </div>
-                <pre>pkg install apache2 -y</pre>
+                <pre>pkg install nmap -y</pre>
             </div>
 
-            <h3>3. Start the Server</h3>
-            <p>Launch the Apache daemon.</p>
+            <h3>3. Verify Installation</h3>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">VERIFY</span>
                 </div>
-                <pre>apachectl start</pre>
+                <pre>ncat --version</pre>
             </div>
         </section>
 
         <section>
-            <h2>Basic Usage & Examples</h2>
-            <p>Once started, your server is live. Here is how to manage it and locate your files.</p>
+            <h2>Practical Usage Examples</h2>
+            <p>Once installed, you can use Ncat for a variety of tasks.</p>
 
-            <h3>Accessing the Default Page</h3>
-            <p>Open your browser and navigate to the local host address.</p>
+            <h3>Listening on a Port</h3>
+            <p>Start a listening server on port 4444. Useful for receiving connections.</p>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>URL - BROWSER</span>
-                    <span class="copy-label">COPY URL</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">LISTEN</span>
                 </div>
-                <pre>http://localhost:8080</pre>
+                <pre>ncat -lvnp 4444</pre>
             </div>
 
-            <h3>Locating Web Files</h3>
-            <p>In Termux, the default document root where you should place your HTML files is:</p>
+            <h3>Connecting to a Port</h3>
+            <p>Connect to a remote device listening on port 4444.</p>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>PATH - TERMINAL</span>
-                    <span class="copy-label">COPY PATH</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">CONNECT</span>
                 </div>
-                <pre>/data/data/com.termux/files/usr/share/apache2/default-site/htdocs/</pre>
+                <pre>ncat &lt;IP_ADDRESS&gt; 4444</pre>
             </div>
 
-            <h3>Stopping the Server</h3>
-            <p>Kill the Apache process when you are finished testing.</p>
+            <h3>File Transfer</h3>
+            <p>Send a file to a listening receiver:</p>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">SEND</span>
                 </div>
-                <pre>apachectl stop</pre>
+                <pre>ncat &lt;IP_ADDRESS&gt; 4444 &lt; file.txt</pre>
             </div>
-            
-            <h3>Restarting for Configuration Changes</h3>
-            <p>Apply changes made to the <code>httpd.conf</code> file.</p>
+            <p>Receive a file (acting as a listener):</p>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">RECEIVE</span>
                 </div>
-                <pre>apachectl restart</pre>
+                <pre>ncat -lvnp 4444 &gt; received.txt</pre>
+            </div>
+
+            <h3>Basic Network Analysis</h3>
+            <p>Check if a specific port is open on a target (e.g., port 80):</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>TERMINAL</span>
+                    <span class="copy-label">SCAN</span>
+                </div>
+                <pre>ncat -zv &lt;IP_ADDRESS&gt; 80</pre>
+            </div>
+            <p>Scan a range of ports (e.g., 20-100):</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>TERMINAL</span>
+                    <span class="copy-label">SCAN RANGE</span>
+                </div>
+                <pre>ncat -zv &lt;IP_ADDRESS&gt; 20-100</pre>
             </div>
         </section>
     </article>
@@ -150,8 +150,7 @@
 </section>
 
 <footer>
-    <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
-    <p>Disclaimer: This tutorial is for educational purposes only. Secure your server before exposing it to any external network.</p>
+    <p>© 2026 TERMUX HUB. All rights reserved.</p>
 </footer>
 
 

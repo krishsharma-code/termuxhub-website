@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Install and Use Apache on Termux - Complete Guide 2026</title>
-    <meta name="description" content="Step by step guide on how to install and use Apache on Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
-    <meta name="keywords" content="Termux, Android hacking tools, Apache, no root, security tutorial, 2026, cybersecurity">
+    <title>How to Install and Use Manjaro on Termux - Complete Guide 2026</title>
+    <meta name="description" content="Step by step guide on how to install and use Manjaro on Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
+    <meta name="keywords" content="Termux, Android hacking tools, Manjaro, no root, security tutorial, 2026, cybersecurity">
     
     <!-- Google Fonts -->
     
@@ -19,7 +19,6 @@
 <div id="reading-progress" style="position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: #10b981; z-index: 9999; box-shadow: 0 0 10px #10b981; transition: width 0.1s ease;"></div>
 
 <header>
-    <div class="logo">TERMUX HUB</div>
     <nav>
         <a href="index.html">HOME</a>
         <a href="cheatsheet.html">CHEATSHEET</a>
@@ -27,105 +26,71 @@
     <button id="installAppBtn" style="display:none; background:#10b981; color: var(--text-color); border:none; padding:8px 15px; border-radius:20px; cursor:pointer; font-weight:bold; margin-left:10px;">⬇️ Install App</button><button id="theme-toggle" style="background: #10b981; color: var(--text-color); border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; margin-left: 10px; transition: 0.2s;">🌓 Theme</button></nav>
     <div id="google_translate_element"></div>
 </header>
-<div class="tool-banner"><h1>Apache</h1><p>Terminal Guide & Documentation</p></div>
+<div class="tool-banner"><h1>Manjaro Linux on Android:</h1><p>Terminal Guide & Documentation</p></div>
 
 <main>
     <article>
-        <h1>Apache in Termux - Complete Installation and Usage Guide</h1>
+        <h1>Manjaro Linux on Android: Installation & Setup</h1>
         
         <section>
-            <h2>What is apache</h2>
-            <p><strong>Apache HTTP Server</strong> is a free and open-source cross-platform web server software. It is one of the oldest and most reliable web servers in the world, powering a significant portion of the internet. In Termux, Apache allows you to <span class="highlight">host local websites, test web applications, and create a mobile development environment</span> directly on your Android device.</p>
+            <h2>Introduction</h2>
+            <p><strong>Manjaro Linux</strong> is a powerful, user-friendly, Arch-based distribution that you can now run directly on your Android device. By leveraging the power of <code>proot-distro</code> within Termux, you can experience a full Arch-based CLI environment with access to the <strong>Pacman</strong> package manager and the vast ecosystem of Arch software—all without needing root access.</p>
         </section>
 
         <section>
             <h2>Prerequisites</h2>
-            <p>Before installing Apache, ensure your Termux environment is ready:</p>
+            <p>Before you begin the installation, ensure your device meets these requirements:</p>
             <ul>
-                <li><strong>Storage Permission:</strong> Useful if you want to host files from your internal storage.</li>
-                <li><strong>Port Awareness:</strong> By default, Termux services cannot use ports below 1024 without root. Apache in Termux typically uses port 8080.</li>
-                <li><strong>Stable Internet:</strong> Required for downloading the initial package.</li>
+                <li><strong>Termux:</strong> Use the latest version from F-Droid.</li>
+                <li><strong>Storage:</strong> Minimum 3GB of free space.</li>
+                <li><strong>RAM:</strong> 3GB or more recommended for smooth performance.</li>
+                <li><strong>System:</strong> Android 7.0 or above with a 64-bit CPU.</li>
             </ul>
         </section>
 
         <section>
-            <h2>Installation Commands in Termux</h2>
-            <p>Follow these steps to set up the Apache (httpd) package.</p>
+            <h2>Installation Steps</h2>
+            <p>Follow these steps to install the Manjaro subsystem in your Termux environment.</p>
 
-            <h3>1. Update Repositories</h3>
-            <p>Ensure your package list is current.</p>
+            <h3>1. Update Termux & Install proot-distro</h3>
+            <p>First, ensure your repositories are up to date and install the proot-distro utility.</p>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>pkg update && pkg upgrade -y</pre>
+                <pre>pkg update && pkg upgrade && pkg install proot-distro -y</pre>
             </div>
 
-            <h3>2. Install Apache (httpd)</h3>
-            <p>Install the <code>apache2</code> package (sometimes referred to as <code>httpd</code> in other distros).</p>
+            <h3>2. Install Manjaro Linux</h3>
+            <p>Use proot-distro to download and install the Manjaro environment.</p>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>pkg install apache2 -y</pre>
+                <pre>proot-distro install manjaro</pre>
             </div>
 
-            <h3>3. Start the Server</h3>
-            <p>Launch the Apache daemon.</p>
+            <h3>3. Login to Manjaro</h3>
+            <p>Once installed, you can enter the Manjaro environment with the following command:</p>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>apachectl start</pre>
+                <pre>proot-distro login manjaro</pre>
             </div>
         </section>
 
         <section>
-            <h2>Basic Usage & Examples</h2>
-            <p>Once started, your server is live. Here is how to manage it and locate your files.</p>
+            <h2>Basic Setup & Management</h2>
+            <p>Inside the Manjaro environment, you use the <strong>Pacman</strong> package manager to manage your system.</p>
 
-            <h3>Accessing the Default Page</h3>
-            <p>Open your browser and navigate to the local host address.</p>
+            <h3>Update the System</h3>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>URL - BROWSER</span>
-                    <span class="copy-label">COPY URL</span>
-                </div>
-                <pre>http://localhost:8080</pre>
+                <pre>pacman -Syu</pre>
             </div>
 
-            <h3>Locating Web Files</h3>
-            <p>In Termux, the default document root where you should place your HTML files is:</p>
+            <h3>Install Common Tools</h3>
+            <p>You can install various development and networking tools:</p>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>PATH - TERMINAL</span>
-                    <span class="copy-label">COPY PATH</span>
-                </div>
-                <pre>/data/data/com.termux/files/usr/share/apache2/default-site/htdocs/</pre>
+                <pre>pacman -S git python nodejs openssh</pre>
             </div>
 
-            <h3>Stopping the Server</h3>
-            <p>Kill the Apache process when you are finished testing.</p>
-            <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>apachectl stop</pre>
-            </div>
-            
-            <h3>Restarting for Configuration Changes</h3>
-            <p>Apply changes made to the <code>httpd.conf</code> file.</p>
-            <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>apachectl restart</pre>
-            </div>
+            <h3>Manage the Distribution</h3>
+            <ul>
+                <li><strong>Exit Session:</strong> Type <code>exit</code> to return to Termux.</li>
+                <li><strong>Remove Manjaro:</strong> <code>proot-distro remove manjaro</code> if you wish to uninstall.</li>
+            </ul>
         </section>
     </article>
 </main>
@@ -151,7 +116,6 @@
 
 <footer>
     <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
-    <p>Disclaimer: This tutorial is for educational purposes only. Secure your server before exposing it to any external network.</p>
 </footer>
 
 

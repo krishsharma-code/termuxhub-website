@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Install and Use Apache on Termux - Complete Guide 2026</title>
-    <meta name="description" content="Step by step guide on how to install and use Apache on Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
-    <meta name="keywords" content="Termux, Android hacking tools, Apache, no root, security tutorial, 2026, cybersecurity">
+    <title>How to Install and Use Hacktronian on Termux - Complete Guide 2026</title>
+    <meta name="description" content="Step by step guide on how to install and use Hacktronian on Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
+    <meta name="keywords" content="Termux, Android hacking tools, Hacktronian, no root, security tutorial, 2026, cybersecurity">
     
     <!-- Google Fonts -->
     
@@ -19,7 +19,6 @@
 <div id="reading-progress" style="position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: #10b981; z-index: 9999; box-shadow: 0 0 10px #10b981; transition: width 0.1s ease;"></div>
 
 <header>
-    <div class="logo">TERMUX HUB</div>
     <nav>
         <a href="index.html">HOME</a>
         <a href="cheatsheet.html">CHEATSHEET</a>
@@ -27,105 +26,73 @@
     <button id="installAppBtn" style="display:none; background:#10b981; color: var(--text-color); border:none; padding:8px 15px; border-radius:20px; cursor:pointer; font-weight:bold; margin-left:10px;">⬇️ Install App</button><button id="theme-toggle" style="background: #10b981; color: var(--text-color); border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; margin-left: 10px; transition: 0.2s;">🌓 Theme</button></nav>
     <div id="google_translate_element"></div>
 </header>
-<div class="tool-banner"><h1>Apache</h1><p>Terminal Guide & Documentation</p></div>
+<div class="tool-banner"><h1>Hacktronian:</h1><p>Terminal Guide & Documentation</p></div>
 
 <main>
     <article>
-        <h1>Apache in Termux - Complete Installation and Usage Guide</h1>
+        <h1>Hacktronian: Installation & Usage Commands</h1>
         
         <section>
-            <h2>What is apache</h2>
-            <p><strong>Apache HTTP Server</strong> is a free and open-source cross-platform web server software. It is one of the oldest and most reliable web servers in the world, powering a significant portion of the internet. In Termux, Apache allows you to <span class="highlight">host local websites, test web applications, and create a mobile development environment</span> directly on your Android device.</p>
+            <h2>Introduction</h2>
+            <p><strong>Hacktronian</strong> is an all-in-one menu-based penetration testing toolkit optimized for the Termux environment. It serves as a centralized hub for ethical hackers and security enthusiasts, providing instant access to a wide array of tools for information gathering, password attacks, wireless testing, and more. Hacktronian is particularly useful for beginners, as it simplifies the process of exploring and utilizing powerful security utilities through a single, easy-to-navigate interface.</p>
         </section>
 
         <section>
             <h2>Prerequisites</h2>
-            <p>Before installing Apache, ensure your Termux environment is ready:</p>
+            <p>To ensure Hacktronian runs correctly on your Android device, you must have the following dependencies installed in Termux:</p>
             <ul>
-                <li><strong>Storage Permission:</strong> Useful if you want to host files from your internal storage.</li>
-                <li><strong>Port Awareness:</strong> By default, Termux services cannot use ports below 1024 without root. Apache in Termux typically uses port 8080.</li>
-                <li><strong>Stable Internet:</strong> Required for downloading the initial package.</li>
+                <li><strong>Git:</strong> Required for cloning the toolkit from GitHub.</li>
+                <li><strong>Python 2:</strong> Hacktronian is built on Python 2 and requires its interpreter for execution.</li>
             </ul>
         </section>
 
         <section>
-            <h2>Installation Commands in Termux</h2>
-            <p>Follow these steps to set up the Apache (httpd) package.</p>
+            <h2>Installation Steps</h2>
+            <p>Follow these terminal commands sequentially to install Hacktronian in your Termux environment:</p>
 
-            <h3>1. Update Repositories</h3>
-            <p>Ensure your package list is current.</p>
+            <h3>1. Update System Packages</h3>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
                 <pre>pkg update && pkg upgrade -y</pre>
             </div>
 
-            <h3>2. Install Apache (httpd)</h3>
-            <p>Install the <code>apache2</code> package (sometimes referred to as <code>httpd</code> in other distros).</p>
+            <h3>2. Install Git</h3>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>pkg install apache2 -y</pre>
+                <pre>pkg install git -y</pre>
             </div>
 
-            <h3>3. Start the Server</h3>
-            <p>Launch the Apache daemon.</p>
+            <h3>3. Clone the Hacktronian Repository</h3>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>apachectl start</pre>
+                <pre>git clone https://github.com/thehackingsage/hacktronian</pre>
+            </div>
+
+            <h3>4. Navigate to the Directory</h3>
+            <div class="code-block">
+                <pre>cd hacktronian</pre>
+            </div>
+
+            <h3>5. Set Executable Permissions</h3>
+            <div class="code-block">
+                <pre>chmod +x hacktronian.py</pre>
+            </div>
+
+            <h3>6. Launch the Toolkit</h3>
+            <div class="code-block">
+                <pre>python2 hacktronian.py</pre>
             </div>
         </section>
 
         <section>
-            <h2>Basic Usage & Examples</h2>
-            <p>Once started, your server is live. Here is how to manage it and locate your files.</p>
-
-            <h3>Accessing the Default Page</h3>
-            <p>Open your browser and navigate to the local host address.</p>
-            <div class="code-block">
-                <div class="code-block-header">
-                    <span>URL - BROWSER</span>
-                    <span class="copy-label">COPY URL</span>
-                </div>
-                <pre>http://localhost:8080</pre>
-            </div>
-
-            <h3>Locating Web Files</h3>
-            <p>In Termux, the default document root where you should place your HTML files is:</p>
-            <div class="code-block">
-                <div class="code-block-header">
-                    <span>PATH - TERMINAL</span>
-                    <span class="copy-label">COPY PATH</span>
-                </div>
-                <pre>/data/data/com.termux/files/usr/share/apache2/default-site/htdocs/</pre>
-            </div>
-
-            <h3>Stopping the Server</h3>
-            <p>Kill the Apache process when you are finished testing.</p>
-            <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>apachectl stop</pre>
-            </div>
-            
-            <h3>Restarting for Configuration Changes</h3>
-            <p>Apply changes made to the <code>httpd.conf</code> file.</p>
-            <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>apachectl restart</pre>
-            </div>
+            <h2>Available Menu Categories</h2>
+            <p>Once launched, Hacktronian presents a comprehensive menu with several categorized modules:</p>
+            <ul>
+                <li><strong>Information Gathering:</strong> Tools for DNS lookup, Whois, and network reconnaissance.</li>
+                <li><strong>Password Attacks:</strong> Utilities for auditing password strength and local security.</li>
+                <li><strong>Wireless Testing:</strong> Modules specifically for testing Wi-Fi network security.</li>
+                <li><strong>Exploitation Tools:</strong> Collection of scripts for testing known vulnerabilities.</li>
+                <li><strong>Sniffing & Spoofing:</strong> Tools for capturing and manipulating network traffic.</li>
+                <li><strong>Web Hacking:</strong> Scanners and utilities for testing web application security.</li>
+                <li><strong>Phishing Tools:</strong> Modules for creating awareness regarding social engineering attacks.</li>
+            </ul>
         </section>
     </article>
 </main>
@@ -151,7 +118,6 @@
 
 <footer>
     <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
-    <p>Disclaimer: This tutorial is for educational purposes only. Secure your server before exposing it to any external network.</p>
 </footer>
 
 

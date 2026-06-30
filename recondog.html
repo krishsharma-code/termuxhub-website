@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Install and Use Apache on Termux - Complete Guide 2026</title>
-    <meta name="description" content="Step by step guide on how to install and use Apache on Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
-    <meta name="keywords" content="Termux, Android hacking tools, Apache, no root, security tutorial, 2026, cybersecurity">
+    <title>How to Install and Use Recondog on Termux - Complete Guide 2026</title>
+    <meta name="description" content="Step by step guide on how to install and use Recondog on Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
+    <meta name="keywords" content="Termux, Android hacking tools, Recondog, no root, security tutorial, 2026, cybersecurity">
     
     <!-- Google Fonts -->
     
@@ -27,105 +27,81 @@
     <button id="installAppBtn" style="display:none; background:#10b981; color: var(--text-color); border:none; padding:8px 15px; border-radius:20px; cursor:pointer; font-weight:bold; margin-left:10px;">⬇️ Install App</button><button id="theme-toggle" style="background: #10b981; color: var(--text-color); border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; margin-left: 10px; transition: 0.2s;">🌓 Theme</button></nav>
     <div id="google_translate_element"></div>
 </header>
-<div class="tool-banner"><h1>Apache</h1><p>Terminal Guide & Documentation</p></div>
+<div class="tool-banner"><h1>ReconDog</h1><p>Terminal Guide & Documentation</p></div>
 
 <main>
     <article>
-        <h1>Apache in Termux - Complete Installation and Usage Guide</h1>
+        <h1>ReconDog in Termux: Installation & Usage</h1>
         
-        <section>
-            <h2>What is apache</h2>
-            <p><strong>Apache HTTP Server</strong> is a free and open-source cross-platform web server software. It is one of the oldest and most reliable web servers in the world, powering a significant portion of the internet. In Termux, Apache allows you to <span class="highlight">host local websites, test web applications, and create a mobile development environment</span> directly on your Android device.</p>
-        </section>
+        <p><span class="highlight">ReconDog</span> is a powerful all-in-one information gathering and OSINT (Open Source Intelligence) tool designed for reconnaissance. It streamlines various lookup tasks into a single terminal interface, making it an essential tool for penetration testers and security researchers.</p>
 
         <section>
             <h2>Prerequisites</h2>
-            <p>Before installing Apache, ensure your Termux environment is ready:</p>
+            <p>Ensure you have the basic dependencies installed in Termux before proceeding with the ReconDog installation.</p>
             <ul>
-                <li><strong>Storage Permission:</strong> Useful if you want to host files from your internal storage.</li>
-                <li><strong>Port Awareness:</strong> By default, Termux services cannot use ports below 1024 without root. Apache in Termux typically uses port 8080.</li>
-                <li><strong>Stable Internet:</strong> Required for downloading the initial package.</li>
+                <li>Git</li>
+                <li>Python</li>
+                <li>Nmap</li>
+                <li>DNSutils</li>
             </ul>
         </section>
 
         <section>
-            <h2>Installation Commands in Termux</h2>
-            <p>Follow these steps to set up the Apache (httpd) package.</p>
+            <h2>Installation Commands</h2>
+            <p>Execute the following commands in your Termux terminal to get ReconDog up and running.</p>
 
-            <h3>1. Update Repositories</h3>
-            <p>Ensure your package list is current.</p>
+            <h3>1. Update and Upgrade</h3>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">BASH</span>
                 </div>
                 <pre>pkg update && pkg upgrade -y</pre>
             </div>
 
-            <h3>2. Install Apache (httpd)</h3>
-            <p>Install the <code>apache2</code> package (sometimes referred to as <code>httpd</code> in other distros).</p>
+            <h3>2. Install Dependencies</h3>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">INSTALL</span>
                 </div>
-                <pre>pkg install apache2 -y</pre>
+                <pre>pkg install git python nmap dnsutils -y</pre>
             </div>
 
-            <h3>3. Start the Server</h3>
-            <p>Launch the Apache daemon.</p>
+            <h3>3. Clone and Setup</h3>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">CLONE</span>
                 </div>
-                <pre>apachectl start</pre>
+                <pre>git clone https://github.com/UltimateHackers/ReconDog
+cd ReconDog
+pip install -r requirements.txt</pre>
+            </div>
+
+            <h3>4. Run ReconDog</h3>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>TERMINAL</span>
+                    <span class="copy-label">LAUNCH</span>
+                </div>
+                <pre>python dog.py</pre>
             </div>
         </section>
 
         <section>
-            <h2>Basic Usage & Examples</h2>
-            <p>Once started, your server is live. Here is how to manage it and locate your files.</p>
-
-            <h3>Accessing the Default Page</h3>
-            <p>Open your browser and navigate to the local host address.</p>
-            <div class="code-block">
-                <div class="code-block-header">
-                    <span>URL - BROWSER</span>
-                    <span class="copy-label">COPY URL</span>
-                </div>
-                <pre>http://localhost:8080</pre>
-            </div>
-
-            <h3>Locating Web Files</h3>
-            <p>In Termux, the default document root where you should place your HTML files is:</p>
-            <div class="code-block">
-                <div class="code-block-header">
-                    <span>PATH - TERMINAL</span>
-                    <span class="copy-label">COPY PATH</span>
-                </div>
-                <pre>/data/data/com.termux/files/usr/share/apache2/default-site/htdocs/</pre>
-            </div>
-
-            <h3>Stopping the Server</h3>
-            <p>Kill the Apache process when you are finished testing.</p>
-            <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>apachectl stop</pre>
-            </div>
-            
-            <h3>Restarting for Configuration Changes</h3>
-            <p>Apply changes made to the <code>httpd.conf</code> file.</p>
-            <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>apachectl restart</pre>
-            </div>
+            <h2>Main Features & Usage</h2>
+            <p>Once ReconDog is launched, you can choose from various reconnaissance options:</p>
+            <ul>
+                <li><strong>WHOIS Lookup:</strong> Get detailed domain registration information.</li>
+                <li><strong>DNS Enumeration:</strong> Scan for DNS and nameserver records.</li>
+                <li><strong>Port Scanning:</strong> Identify open ports on a target server.</li>
+                <li><strong>CMS Detection:</strong> Identify the CMS (e.g., WordPress) behind a site.</li>
+                <li><strong>Reverse IP Lookup:</strong> Find other domains hosted on the same IP.</li>
+                <li><strong>Subdomain Discovery:</strong> Automatically find subdomains for a given target.</li>
+                <li><strong>Technology Detection:</strong> Identify the web stack and technologies used by a website.</li>
+                <li><strong>Honeypot Detection:</strong> Check if a system is a honeypot decoy.</li>
+            </ul>
         </section>
     </article>
 </main>
@@ -150,8 +126,7 @@
 </section>
 
 <footer>
-    <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
-    <p>Disclaimer: This tutorial is for educational purposes only. Secure your server before exposing it to any external network.</p>
+    <p>© 2026 TERMUX HUB. All rights reserved.</p>
 </footer>
 
 

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Install and Use Apache on Termux - Complete Guide 2026</title>
-    <meta name="description" content="Step by step guide on how to install and use Apache on Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
-    <meta name="keywords" content="Termux, Android hacking tools, Apache, no root, security tutorial, 2026, cybersecurity">
+    <title>How to Install and Use Local Server on Termux - Complete Guide 2026</title>
+    <meta name="description" content="Step by step guide on how to install and use Local Server on Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
+    <meta name="keywords" content="Termux, Android hacking tools, Local Server, no root, security tutorial, 2026, cybersecurity">
     
     <!-- Google Fonts -->
     
@@ -27,104 +27,104 @@
     <button id="installAppBtn" style="display:none; background:#10b981; color: var(--text-color); border:none; padding:8px 15px; border-radius:20px; cursor:pointer; font-weight:bold; margin-left:10px;">⬇️ Install App</button><button id="theme-toggle" style="background: #10b981; color: var(--text-color); border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; margin-left: 10px; transition: 0.2s;">🌓 Theme</button></nav>
     <div id="google_translate_element"></div>
 </header>
-<div class="tool-banner"><h1>Apache</h1><p>Terminal Guide & Documentation</p></div>
+<div class="tool-banner"><h1>Run a Local Web Server on Android</h1><p>Terminal Guide & Documentation</p></div>
 
 <main>
     <article>
-        <h1>Apache in Termux - Complete Installation and Usage Guide</h1>
+        <h1>Run a Local Web Server on Android</h1>
         
-        <section>
-            <h2>What is apache</h2>
-            <p><strong>Apache HTTP Server</strong> is a free and open-source cross-platform web server software. It is one of the oldest and most reliable web servers in the world, powering a significant portion of the internet. In Termux, Apache allows you to <span class="highlight">host local websites, test web applications, and create a mobile development environment</span> directly on your Android device.</p>
-        </section>
+        <p>This guide explains how to set up a lightweight local web server on your Android device using <span class="highlight">Termux</span>. This is perfect for testing HTML/CSS/JS projects or practicing web development on the go.</p>
 
         <section>
-            <h2>Prerequisites</h2>
-            <p>Before installing Apache, ensure your Termux environment is ready:</p>
-            <ul>
-                <li><strong>Storage Permission:</strong> Useful if you want to host files from your internal storage.</li>
-                <li><strong>Port Awareness:</strong> By default, Termux services cannot use ports below 1024 without root. Apache in Termux typically uses port 8080.</li>
-                <li><strong>Stable Internet:</strong> Required for downloading the initial package.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Installation Commands in Termux</h2>
-            <p>Follow these steps to set up the Apache (httpd) package.</p>
-
-            <h3>1. Update Repositories</h3>
-            <p>Ensure your package list is current.</p>
+            <h2>Step 1: Prepare the System</h2>
+            <p>First, update and upgrade your Termux packages to ensure everything is current.</p>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">BASH</span>
                 </div>
                 <pre>pkg update && pkg upgrade -y</pre>
             </div>
+        </section>
 
-            <h3>2. Install Apache (httpd)</h3>
-            <p>Install the <code>apache2</code> package (sometimes referred to as <code>httpd</code> in other distros).</p>
+        <section>
+            <h2>Step 2: Install Python</h2>
+            <p>Python includes a built-in module for running a simple HTTP server, which is ideal for our needs.</p>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">INSTALL</span>
                 </div>
-                <pre>pkg install apache2 -y</pre>
-            </div>
-
-            <h3>3. Start the Server</h3>
-            <p>Launch the Apache daemon.</p>
-            <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>apachectl start</pre>
+                <pre>pkg install python -y</pre>
             </div>
         </section>
 
         <section>
-            <h2>Basic Usage & Examples</h2>
-            <p>Once started, your server is live. Here is how to manage it and locate your files.</p>
-
-            <h3>Accessing the Default Page</h3>
-            <p>Open your browser and navigate to the local host address.</p>
+            <h2>Step 3: Create a Project Directory</h2>
+            <p>Create a dedicated folder for your website and navigate into it.</p>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>URL - BROWSER</span>
-                    <span class="copy-label">COPY URL</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">MKDIR</span>
                 </div>
-                <pre>http://localhost:8080</pre>
+                <pre>mkdir mywebsite && cd mywebsite</pre>
             </div>
+        </section>
 
-            <h3>Locating Web Files</h3>
-            <p>In Termux, the default document root where you should place your HTML files is:</p>
+        <section>
+            <h2>Step 4: Create a Webpage</h2>
+            <p>Use the <code>nano</code> editor to create an <code>index.html</code> file with some basic content.</p>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>PATH - TERMINAL</span>
-                    <span class="copy-label">COPY PATH</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">NANO</span>
                 </div>
-                <pre>/data/data/com.termux/files/usr/share/apache2/default-site/htdocs/</pre>
+                <pre>nano index.html</pre>
             </div>
+            <p>Paste the following HTML into the editor:</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>HTML SOURCE</span>
+                </div>
+                <pre>&lt;h1&gt;Welcome to My Local Server&lt;/h1&gt;
+&lt;p&gt;This website is running on Android using Termux.&lt;/p&gt;</pre>
+            </div>
+            <p><em>To save in Nano: Press CTRL + X, then Y, then Enter.</em></p>
+        </section>
 
-            <h3>Stopping the Server</h3>
-            <p>Kill the Apache process when you are finished testing.</p>
+        <section>
+            <h2>Step 5: Start the Web Server</h2>
+            <p>Run the Python HTTP server module on port 8080.</p>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
+                    <span>TERMINAL</span>
+                    <span class="copy-label">SERVER</span>
                 </div>
-                <pre>apachectl stop</pre>
+                <pre>python -m http.server 8080</pre>
             </div>
-            
-            <h3>Restarting for Configuration Changes</h3>
-            <p>Apply changes made to the <code>httpd.conf</code> file.</p>
+        </section>
+
+        <section>
+            <h2>Step 6: Access the Server</h2>
+            <p>Open your mobile browser and navigate to the following local address:</p>
             <div class="code-block">
                 <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
+                    <span>BROWSER URL</span>
                 </div>
-                <pre>apachectl restart</pre>
+                <pre>http://127.0.0.1:8080</pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>Advanced: Exposing the Server Globally</h2>
+            <p>To make your local server accessible from the internet, you can use <span class="highlight">Cloudflared</span>.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>TERMINAL</span>
+                    <span class="copy-label">TUNNEL</span>
+                </div>
+                <pre>pkg install cloudflared -y
+cloudflared tunnel --url http://127.0.0.1:8080</pre>
             </div>
         </section>
     </article>
@@ -150,8 +150,7 @@
 </section>
 
 <footer>
-    <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
-    <p>Disclaimer: This tutorial is for educational purposes only. Secure your server before exposing it to any external network.</p>
+    <p>© 2026 TERMUX HUB. All rights reserved.</p>
 </footer>
 
 

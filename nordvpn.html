@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Install and Use Apache on Termux - Complete Guide 2026</title>
-    <meta name="description" content="Step by step guide on how to install and use Apache on Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
-    <meta name="keywords" content="Termux, Android hacking tools, Apache, no root, security tutorial, 2026, cybersecurity">
+    <title>How to Install and Use Nordvpn on Termux - Complete Guide 2026</title>
+    <meta name="description" content="Step by step guide on how to install and use Nordvpn on Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
+    <meta name="keywords" content="Termux, Android hacking tools, Nordvpn, no root, security tutorial, 2026, cybersecurity">
     
     <!-- Google Fonts -->
     
@@ -19,7 +19,6 @@
 <div id="reading-progress" style="position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: #10b981; z-index: 9999; box-shadow: 0 0 10px #10b981; transition: width 0.1s ease;"></div>
 
 <header>
-    <div class="logo">TERMUX HUB</div>
     <nav>
         <a href="index.html">HOME</a>
         <a href="cheatsheet.html">CHEATSHEET</a>
@@ -27,104 +26,92 @@
     <button id="installAppBtn" style="display:none; background:#10b981; color: var(--text-color); border:none; padding:8px 15px; border-radius:20px; cursor:pointer; font-weight:bold; margin-left:10px;">⬇️ Install App</button><button id="theme-toggle" style="background: #10b981; color: var(--text-color); border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; margin-left: 10px; transition: 0.2s;">🌓 Theme</button></nav>
     <div id="google_translate_element"></div>
 </header>
-<div class="tool-banner"><h1>Apache</h1><p>Terminal Guide & Documentation</p></div>
+<div class="tool-banner"><h1>NordVPN</h1><p>Terminal Guide & Documentation</p></div>
 
 <main>
     <article>
-        <h1>Apache in Termux - Complete Installation and Usage Guide</h1>
+        <h1>NordVPN in Termux: Installation & Usage</h1>
         
         <section>
-            <h2>What is apache</h2>
-            <p><strong>Apache HTTP Server</strong> is a free and open-source cross-platform web server software. It is one of the oldest and most reliable web servers in the world, powering a significant portion of the internet. In Termux, Apache allows you to <span class="highlight">host local websites, test web applications, and create a mobile development environment</span> directly on your Android device.</p>
+            <h2>Introduction</h2>
+            <p>Using a VPN in Termux is essential for security-minded users who want to mask their IP address and encrypt their network traffic. <strong>NordVPN</strong> can be successfully integrated into Termux by utilizing <strong>OpenVPN</strong> within a virtualized Ubuntu environment (<code>proot-distro</code>). This method does not require root access, making it accessible for all users.</p>
         </section>
 
         <section>
             <h2>Prerequisites</h2>
-            <p>Before installing Apache, ensure your Termux environment is ready:</p>
+            <p>Before you begin the installation, ensure you have the following:</p>
             <ul>
-                <li><strong>Storage Permission:</strong> Useful if you want to host files from your internal storage.</li>
-                <li><strong>Port Awareness:</strong> By default, Termux services cannot use ports below 1024 without root. Apache in Termux typically uses port 8080.</li>
-                <li><strong>Stable Internet:</strong> Required for downloading the initial package.</li>
+                <li><strong>NordVPN Service Credentials:</strong> Note that these are different from your login email/password. You can find these in your NordVPN account dashboard under <em>Services > NordVPN > Manual Setup</em>.</li>
+                <li><strong>Termux:</strong> Use the latest version from F-Droid to ensure compatibility.</li>
             </ul>
         </section>
 
         <section>
-            <h2>Installation Commands in Termux</h2>
-            <p>Follow these steps to set up the Apache (httpd) package.</p>
+            <h2>Installation Steps</h2>
+            <p>Follow these steps to set up the Ubuntu environment and install the necessary VPN tools.</p>
 
-            <h3>1. Update Repositories</h3>
-            <p>Ensure your package list is current.</p>
+            <h3>1. Update Termux Packages</h3>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
                 <pre>pkg update && pkg upgrade -y</pre>
             </div>
 
-            <h3>2. Install Apache (httpd)</h3>
-            <p>Install the <code>apache2</code> package (sometimes referred to as <code>httpd</code> in other distros).</p>
+            <h3>2. Install Ubuntu via proot-distro</h3>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>pkg install apache2 -y</pre>
+                <pre>pkg install proot-distro -y && proot-distro install ubuntu</pre>
             </div>
 
-            <h3>3. Start the Server</h3>
-            <p>Launch the Apache daemon.</p>
+            <h3>3. Login to the Ubuntu Environment</h3>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>apachectl start</pre>
+                <pre>proot-distro login ubuntu</pre>
+            </div>
+
+            <h3>4. Update Ubuntu Packages</h3>
+            <div class="code-block">
+                <pre>apt update && apt upgrade -y</pre>
+            </div>
+
+            <h3>5. Install Required Tools</h3>
+            <div class="code-block">
+                <pre>apt install openvpn wget unzip -y</pre>
+            </div>
+
+            <h3>6. Download and Extract NordVPN Configs</h3>
+            <div class="code-block">
+                <pre>wget https://downloads.nordcdn.com/configs/archives/servers/ovpn.zip
+unzip ovpn.zip</pre>
             </div>
         </section>
 
         <section>
-            <h2>Basic Usage & Examples</h2>
-            <p>Once started, your server is live. Here is how to manage it and locate your files.</p>
+            <h2>Usage Guide</h2>
+            <p>Once installed, follow these commands to connect to a VPN server.</p>
 
-            <h3>Accessing the Default Page</h3>
-            <p>Open your browser and navigate to the local host address.</p>
+            <h3>1. Navigate to Config Folder</h3>
+            <p>Go to the UDP or TCP configuration folder:</p>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>URL - BROWSER</span>
-                    <span class="copy-label">COPY URL</span>
-                </div>
-                <pre>http://localhost:8080</pre>
+                <pre>cd ovpn_udp</pre>
             </div>
 
-            <h3>Locating Web Files</h3>
-            <p>In Termux, the default document root where you should place your HTML files is:</p>
+            <h3>2. Choose a Server</h3>
+            <p>List the available servers to find one you want to use:</p>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>PATH - TERMINAL</span>
-                    <span class="copy-label">COPY PATH</span>
-                </div>
-                <pre>/data/data/com.termux/files/usr/share/apache2/default-site/htdocs/</pre>
+                <pre>ls</pre>
             </div>
 
-            <h3>Stopping the Server</h3>
-            <p>Kill the Apache process when you are finished testing.</p>
+            <h3>3. Connect to the VPN</h3>
+            <p>Use OpenVPN with your chosen configuration file:</p>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>apachectl stop</pre>
+                <pre>openvpn [server_filename].ovpn</pre>
             </div>
-            
-            <h3>Restarting for Configuration Changes</h3>
-            <p>Apply changes made to the <code>httpd.conf</code> file.</p>
+            <p><em>Example:</em> <code>openvpn us9980.nordvpn.com.udp.ovpn</code></p>
+
+            <h3>4. Authentication</h3>
+            <p>When prompted, enter your <strong>NordVPN Service Username</strong> and <strong>Service Password</strong>.</p>
+
+            <h3>5. Disconnect</h3>
+            <p>To terminate the VPN session, simply press:</p>
             <div class="code-block">
-                <div class="code-block-header">
-                    <span>BASH - TERMINAL</span>
-                    <span class="copy-label">COPY CODE</span>
-                </div>
-                <pre>apachectl restart</pre>
+                <pre>CTRL + C</pre>
             </div>
         </section>
     </article>
@@ -151,7 +138,6 @@
 
 <footer>
     <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
-    <p>Disclaimer: This tutorial is for educational purposes only. Secure your server before exposing it to any external network.</p>
 </footer>
 
 

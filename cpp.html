@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn C++ for Cybersecurity & Termux - Beginner to Advanced</title>
+    <meta name="description" content="Learn C++ programming for cybersecurity and Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
+    <meta name="keywords" content="Termux, Android hacking tools, C++, no root, security tutorial, 2026, cybersecurity">
+    
+    <!-- Google Fonts -->
+    
+    
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10b981">
+    <link rel="stylesheet" href="astra-theme.css">
+</head>
+<body>
+<div id="reading-progress" style="position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: #10b981; z-index: 9999; box-shadow: 0 0 10px #10b981; transition: width 0.1s ease;"></div>
+
+<header>
+    <div class="logo">TERMUX HUB</div>
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="cheatsheet.html">CHEATSHEET</a>
+        <a href="index.html#about">ABOUT</a>
+    <button id="installAppBtn" style="display:none; background:#10b981; color: var(--text-color); border:none; padding:8px 15px; border-radius:20px; cursor:pointer; font-weight:bold; margin-left:10px;">⬇️ Install App</button><button id="theme-toggle" style="background: #10b981; color: var(--text-color); border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; margin-left: 10px; transition: 0.2s;">🌓 Theme</button></nav>
+    <div id="google_translate_element"></div>
+</header>
+<div class="tool-banner"><h1>C++ Programming</h1><p>Terminal Guide & Documentation</p></div>
+
+<main>
+    <article>
+        <h1>C++ Programming</h1>
+        
+        <section>
+            <h2>1. Introduction & Use Cases</h2>
+            <p>C++ is a powerful, high-performance programming language used for system/software development and competitive programming. In Termux, C++ allows you to build lightning-fast utilities and exploit proof-of-concepts.</p>
+            <ul>
+                <li><strong>System Programming:</strong> Building low-level tools that interact with the Linux kernel.</li>
+                <li><strong>Performance:</strong> Developing resource-intensive applications like scanners or crackers.</li>
+                <li><strong>Game Development:</strong> Using libraries like SDL2 or SFML (via X11).</li>
+                <li><strong>Cybersecurity:</strong> Writing memory-efficient exploits and security tools.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. Basic Syntax & Variables</h2>
+            <p>C++ is a statically typed, compiled language. To install the compiler in Termux, use <code>pkg install clang</code>.</p>
+            
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                    <div class="terminal-title">bash — main.cpp</div>
+                </div>
+                <div class="terminal-body">
+                    <pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::string platform = "Termux Hub";
+    int year = 2026;
+    
+    std::cout << "Welcome to " << platform << std::endl;
+    std::cout << "Academy Year: " << year << std::endl;
+    return 0;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Control Flow & Functions</h2>
+            <p>Structured programming with loops and conditional logic in C++.</p>
+            
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                    <div class="terminal-title">bash — control.cpp</div>
+                </div>
+                <div class="terminal-body">
+                    <pre><code>#include &lt;iostream&gt;
+
+void checkPort(int port) {
+    if (port == 80 || port == 443) {
+        std::cout << "Port " << port << " is standard web port." << std::endl;
+    } else {
+        std::cout << "Port " << port << " is a custom port." << std::endl;
+    }
+}
+
+int main() {
+    int ports[] = {80, 8080, 443};
+    for(int p : ports) {
+        checkPort(p);
+    }
+    return 0;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Core Commands Cheat-sheet</h2>
+            <ul>
+                <li><code>g++ -o output file.cpp</code> - Compile a C++ file.</li>
+                <li><code>./output</code> - Run the compiled binary.</li>
+                <li><code>pkg install clang</code> - Install the C++ compiler.</li>
+                <li><code>std::cin >> var;</code> - Get user input.</li>
+                <li><code>std::cout << var;</code> - Print to console.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Popular Libraries & Frameworks</h2>
+            <ul>
+                <li><strong>STL:</strong> Standard Template Library for data structures and algorithms.</li>
+                <li><strong>Boost:</strong> A massive set of high-quality peer-reviewed libraries.</li>
+                <li><strong>POCO:</strong> Powerful C++ class libraries for network-centric applications.</li>
+                <li><strong>OpenCV:</strong> Real-time computer vision library.</li>
+                <li><strong>Crow:</strong> A fast and easy-to-use micro web framework for C++.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. Advanced Practical Example: File Reader</h2>
+            <p>A C++ program that reads and displays the content of a file, simulating a basic 'cat' command.</p>
+            
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                    <div class="terminal-title">bash — reader.cpp</div>
+                </div>
+                <div class="terminal-body">
+                    <pre><code>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+
+int main(int argc, char* argv[]) {
+    if (argc < 2) {
+        std::cout << "Usage: ./reader [filename]" << std::endl;
+        return 1;
+    }
+    
+    std::ifstream file(argv[1]);
+    std::string line;
+    
+    if (file.is_open()) {
+        while (getline(file, line)) {
+            std::cout << line << std::endl;
+        }
+        file.close();
+    } else {
+        std::cout << "Unable to open file" << std::endl;
+    }
+    
+    return 0;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+    </article>
+</main>
+
+<section class="explore-tools" style="max-width: 900px; margin: 60px auto; padding: 0 20px;">
+    <h2 style="color: var(--accent-color); font-family: monospace; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 30px;">Explore More Tools</h2>
+    <div class="tool-grid-small">
+        <a href="python.html" class="tool-card-small">
+            <h3>Python</h3>
+            <p>Master automation and security scripting.</p>
+        </a>
+        <a href="javascript.html" class="tool-card-small">
+            <h3>JavaScript</h3>
+            <p>Build interactive web tools with Node.js.</p>
+        </a>
+        <a href="nmap.html" class="tool-card-small">
+            <h3>Nmap</h3>
+            <p>Network discovery and security auditing.</p>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
+    <p>Ethical Disclaimer: All content is for educational purposes only. Unauthorized use is prohibited.</p>
+</footer>
+
+<button id="scrollToTop" title="Go to top">↑</button>
+
+<script>
+    const scrollBtn = document.getElementById("scrollToTop");
+    window.onscroll = function() {
+
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        let progress = document.getElementById("reading-progress");
+        if (progress) progress.style.width = scrolled + "%";
+
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollBtn.style.display = "block";
+        } else {
+            scrollBtn.style.display = "none";
+        }
+    };
+    scrollBtn.onclick = function() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+</script>
+
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Theme Toggle Script -->
+<script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const mainBody = document.body;
+    
+    // Check local storage on load
+    if (localStorage.getItem('theme') === 'dark') { 
+        mainBody.classList.add('dark-mode'); 
+    }
+    
+    // Toggle logic
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            mainBody.classList.toggle('dark-mode');
+            const isDark = mainBody.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    }
+</script>
+
+<script>
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js');
+        });
+    }
+
+    // PWA Install Logic
+    let deferredPrompt;
+    const installBtn = document.getElementById('installAppBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        // Update UI notify the user they can add to home screen
+        if (installBtn) installBtn.style.display = 'inline-block';
+    });
+
+    if (installBtn) {
+        installBtn.addEventListener('click', (e) => {
+            // hide our user interface that shows our A2HS button
+            installBtn.style.display = 'none';
+            // Show the prompt
+            deferredPrompt.prompt();
+            // Wait for the user to respond to the prompt
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the A2HS prompt');
+                } else {
+                    console.log('User dismissed the A2HS prompt');
+                }
+                deferredPrompt = null;
+            });
+        });
+    }
+</script>
+</body>
+</html>
