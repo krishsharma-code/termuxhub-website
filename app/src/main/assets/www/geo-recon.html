@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Install and Use Geo Recon on Termux - Complete Guide 2026</title>
+    <meta name="description" content="Step by step guide on how to install and use Geo Recon on Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
+    <meta name="keywords" content="Termux, Android hacking tools, Geo Recon, no root, security tutorial, 2026, cybersecurity">
+    
+    <!-- Google Fonts -->
+    
+    
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10b981">
+    <link rel="stylesheet" href="astra-theme.css">
+</head>
+<body>
+<div id="reading-progress" style="position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: #10b981; z-index: 9999; box-shadow: 0 0 10px #10b981; transition: width 0.1s ease;"></div>
+
+<header>
+    <div class="logo">TERMUX HUB</div>
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="cheatsheet.html">CHEATSHEET</a>
+        <a href="index.html#about">ABOUT</a>
+    <button id="installAppBtn" style="display:none; background:#10b981; color: var(--text-color); border:none; padding:8px 15px; border-radius:20px; cursor:pointer; font-weight:bold; margin-left:10px;">⬇️ Install App</button><button id="theme-toggle" style="background: #10b981; color: var(--text-color); border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; margin-left: 10px; transition: 0.2s;">🌓 Theme</button></nav>
+    <div id="google_translate_element"></div>
+</header>
+<div class="tool-banner"><h1>Geo-Recon</h1><p>Terminal Guide & Documentation</p></div>
+
+<main>
+    <article>
+        <h1>Geo-Recon Installation & Usage</h1>
+        
+        <p><span class="highlight">Geo-Recon</span> is a powerful OSINT reconnaissance tool designed for geolocation. It allows security researchers and auditors to gather detailed IP geolocation information, network data, and perform Nmap-integrated scanning directly from the Termux terminal.</p>
+
+        <section>
+            <h2>Prerequisites</h2>
+            <p>Before installing Geo-Recon, ensure your Termux environment is updated and have the following tools installed:</p>
+            <ul>
+                <li>Nmap (for network scanning)</li>
+                <li>Git (for cloning the repository)</li>
+                <li>Python 3 (for running the tool)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Installation Commands</h2>
+            <p>Follow these steps to set up Geo-Recon on your device.</p>
+
+            <h3>1. Update Repositories</h3>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>TERMINAL</span>
+                    <span class="copy-label">BASH</span>
+                </div>
+                <pre>pkg update && pkg upgrade -y</pre>
+            </div>
+
+            <h3>2. Install Dependencies</h3>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>TERMINAL</span>
+                    <span class="copy-label">INSTALL</span>
+                </div>
+                <pre>pkg install nmap git python -y</pre>
+            </div>
+
+            <h3>3. Clone and Setup</h3>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>TERMINAL</span>
+                    <span class="copy-label">CLONE</span>
+                </div>
+                <pre>git clone https://github.com/radioactivetobi/geo-recon
+cd geo-recon
+pip install colorama requests</pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>Usage Examples</h2>
+            <p>Geo-Recon provides various options for IP and URL reconnaissance.</p>
+
+            <h3>Launch the Tool</h3>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>TERMINAL</span>
+                    <span class="copy-label">START</span>
+                </div>
+                <pre>python geo-recon.py</pre>
+            </div>
+
+            <h3>Reconnaissance by IP</h3>
+            <p>Gather geolocation details for a specific target IP:</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>TERMINAL</span>
+                    <span class="copy-label">IP RECON</span>
+                </div>
+                <pre>python3 geo-recon.py &lt;target_ip&gt;</pre>
+            </div>
+
+            <h3>Nmap-Integrated Scan</h3>
+            <p>Perform an IP scan with Nmap integration for deeper insights:</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>TERMINAL</span>
+                    <span class="copy-label">NMAP SCAN</span>
+                </div>
+                <pre>python3 geo-recon.py &lt;target_ip&gt; -n</pre>
+            </div>
+
+            <h3>Localhost Recon</h3>
+            <p>Check information for your own connection:</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>TERMINAL</span>
+                    <span class="copy-label">LOCAL RECON</span>
+                </div>
+                <pre>python3 geo-recon.py localhost</pre>
+            </div>
+        </section>
+    </article>
+</main>
+
+
+<section class="explore-tools" style="max-width: 900px; margin: 60px auto; padding: 0 20px;">
+    <h2 style="color: var(--accent-color); font-family: monospace; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 30px;">Explore More Tools</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <a href="nmap.html" style="text-decoration: none; background: var(--card-bg); border: 1px solid var(--border-color); padding: 20px; border-radius: 8px; display: block; transition: all 0.3s ease;">
+            <h3 style="color: var(--accent-color); margin-bottom: 10px;">Nmap</h3>
+            <p style="color: var(--text-color); font-size: 0.85rem;">Powerful network discovery and security auditing.</p>
+        </a>
+        <a href="wafw00f.html" style="text-decoration: none; background: var(--card-bg); border: 1px solid var(--border-color); padding: 20px; border-radius: 8px; display: block; transition: all 0.3s ease;">
+            <h3 style="color: var(--accent-color); margin-bottom: 10px;">WAFW00F</h3>
+            <p style="color: var(--text-color); font-size: 0.85rem;">Identify Web Application Firewalls (WAF).</p>
+        </a>
+        <a href="cool-commands.html" style="text-decoration: none; background: var(--card-bg); border: 1px solid var(--border-color); padding: 20px; border-radius: 8px; display: block; transition: all 0.3s ease;">
+            <h3 style="color: var(--accent-color); margin-bottom: 10px;">Cool Commands</h3>
+            <p style="color: var(--text-color); font-size: 0.85rem;">Visual and fun terminal commands for Termux.</p>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 TERMUX HUB. All rights reserved.</p>
+</footer>
+
+
+<button id="scrollToTop" title="Go to top" style="display: none; position: fixed; bottom: 30px; right: 30px; z-index: 99; border: 1px solid var(--accent-color); outline: none; background-color: var(--header-bg); color: var(--accent-color); cursor: pointer; padding: 15px; border-radius: 50%; font-size: 18px; box-shadow: 0 0 15px var(--glow-color); transition: all 0.3s ease;">
+  ↑
+</button>
+
+<script>
+    const scrollBtn = document.getElementById("scrollToTop");
+    window.onscroll = function() {
+
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        let progress = document.getElementById("reading-progress");
+        if (progress) progress.style.width = scrolled + "%";
+
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollBtn.style.display = "block";
+        } else {
+            scrollBtn.style.display = "none";
+        }
+    };
+    scrollBtn.onclick = function() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+</script>
+
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Theme Toggle Script -->
+<script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const mainBody = document.body;
+    
+    // Check local storage on load
+    if (localStorage.getItem('theme') === 'dark') { 
+        mainBody.classList.add('dark-mode'); 
+    }
+    
+    // Toggle logic
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            mainBody.classList.toggle('dark-mode');
+            const isDark = mainBody.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    }
+</script>
+
+<script>
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js');
+        });
+    }
+
+    // PWA Install Logic
+    let deferredPrompt;
+    const installBtn = document.getElementById('installAppBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        // Update UI notify the user they can add to home screen
+        if (installBtn) installBtn.style.display = 'inline-block';
+    });
+
+    if (installBtn) {
+        installBtn.addEventListener('click', (e) => {
+            // hide our user interface that shows our A2HS button
+            installBtn.style.display = 'none';
+            // Show the prompt
+            deferredPrompt.prompt();
+            // Wait for the user to respond to the prompt
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the A2HS prompt');
+                } else {
+                    console.log('User dismissed the A2HS prompt');
+                }
+                deferredPrompt = null;
+            });
+        });
+    }
+</script>
+</body>
+</html>

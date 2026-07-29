@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onex in Termux - Installation and Usage Guide</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10b981">
+    <link rel="stylesheet" href="astra-theme.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">TERMUX HUB</div>
+    <nav>
+        <a href="index.html">[ HOME ]</a>
+        <a href="#">[ REPOS ]</a>
+        <a href="#">[ SHELL ]</a>
+        <a href="#">[ ABOUT ]</a>
+        <button id="installAppBtn" style="display:none; background:#10b981; color: var(--text-color); border:none; padding:8px 15px; border-radius:20px; cursor:pointer; font-weight:bold; margin-left:10px;">⬇️ Install App</button>
+</nav>
+</header>
+<div class="tool-banner"><h1>Onex</h1><p>Terminal Guide & Documentation</p></div>
+
+<main>
+    <article>
+        <h1>Onex in Termux - Installation and Usage Guide</h1>
+        
+        <section>
+            <h2>Introduction to Onex</h2>
+            <p><strong>Onex</strong> is an automated library of hacking tools for the Termux terminal emulator. It provides access to over 370+ penetration testing and security research tools, acting as a specialized package manager for security professionals. Instead of manually searching and cloning GitHub repositories, Onex streamlines the entire process, allowing you to <span class="highlight">install, search, and manage</span> advanced tools with simple commands.</p>
+        </section>
+
+        <section>
+            <h2>Prerequisites</h2>
+            <p>Ensure your Termux environment is up-to-date and has the necessary permissions:</p>
+            <ul>
+                <li><strong>Latest Version:</strong> Use Termux from F-Droid for full package support.</li>
+                <li><strong>Storage:</strong> Run <code>termux-setup-storage</code> to allow file access.</li>
+                <li><strong>Stable Network:</strong> Essential for cloning repositories and fetching dependencies.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Installation Commands</h2>
+            <p>Follow these terminal commands in order to set up Onex correctly on your device.</p>
+
+            <h3>1. Update Package Index</h3>
+            <p>Always start by ensuring your local package lists are synchronized.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>pkg update -y && pkg upgrade -y</pre>
+            </div>
+
+            <h3>2. Install Git</h3>
+            <p>Git is required to clone the official Onex repository.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>pkg install git -y</pre>
+            </div>
+
+            <h3>3. Clone the Source</h3>
+            <p>Download the Onex installation script from GitHub.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>git clone https://github.com/rajkumardusad/onex.git</pre>
+            </div>
+
+            <h3>4. Grant Permissions</h3>
+            <p>Navigate to the directory and make the script executable.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>cd onex && chmod +x onex</pre>
+            </div>
+
+            <h3>5. Launch the Tool</h3>
+            <p>Execute the tool to begin using the library.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>./onex</pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>Usage</h2>
+            <p>Once Onex is running, you can use the following commands within its interface or directly from your shell if integrated.</p>
+
+            <h3>Main Interface</h3>
+            <p>Simply type <code>onex</code> to open the main menu and browse categories.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>onex</pre>
+            </div>
+
+            <h3>Install a Specific Tool</h3>
+            <p>Example: To install <code>nmap</code> through Onex.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>onex install nmap</pre>
+            </div>
+
+            <h3>Search for Tools</h3>
+            <p>Quickly find if a tool exists in the library.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>onex search [tool_name]</pre>
+            </div>
+        </section>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
+    <p>Disclaimer: This tutorial is for educational purposes only. Stay ethical and always respect privacy.</p>
+</footer>
+
+<script>
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js');
+        });
+    }
+
+    // PWA Install Logic
+    let deferredPrompt;
+    const installBtn = document.getElementById('installAppBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        // Update UI notify the user they can add to home screen
+        if (installBtn) installBtn.style.display = 'inline-block';
+    });
+
+    if (installBtn) {
+        installBtn.addEventListener('click', (e) => {
+            // hide our user interface that shows our A2HS button
+            installBtn.style.display = 'none';
+            // Show the prompt
+            deferredPrompt.prompt();
+            // Wait for the user to respond to the prompt
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the A2HS prompt');
+                } else {
+                    console.log('User dismissed the A2HS prompt');
+                }
+                deferredPrompt = null;
+            });
+        });
+    }
+</script>
+</body>
+</html>
