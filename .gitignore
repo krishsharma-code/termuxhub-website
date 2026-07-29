@@ -2,6 +2,7 @@
 .netlify
 
 # Standard ignore rules
+.gradle/
 node_modules/
 .env
 .DS_Store
