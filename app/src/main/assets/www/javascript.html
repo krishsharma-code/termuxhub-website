@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn JavaScript for Cybersecurity & Termux - Beginner to Advanced</title>
+    <meta name="description" content="Learn JavaScript programming for cybersecurity and Termux. Step by step tutorial, no root required. 2026 updated Android hacking and security guide.">
+    <meta name="keywords" content="Termux, Android hacking tools, JavaScript, no root, security tutorial, 2026, cybersecurity">
+    
+    <!-- Google Fonts -->
+    
+    
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10b981">
+    <link rel="stylesheet" href="astra-theme.css">
+</head>
+<body>
+<div id="reading-progress" style="position: fixed; top: 0; left: 0; width: 0%; height: 4px; background: #10b981; z-index: 9999; box-shadow: 0 0 10px #10b981; transition: width 0.1s ease;"></div>
+
+<header>
+    <div class="logo">TERMUX HUB</div>
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="cheatsheet.html">CHEATSHEET</a>
+        <a href="index.html#about">ABOUT</a>
+    <button id="installAppBtn" style="display:none; background:#10b981; color: var(--text-color); border:none; padding:8px 15px; border-radius:20px; cursor:pointer; font-weight:bold; margin-left:10px;">⬇️ Install App</button><button id="theme-toggle" style="background: #10b981; color: var(--text-color); border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; margin-left: 10px; transition: 0.2s;">🌓 Theme</button></nav>
+    <div id="google_translate_element"></div>
+</header>
+<div class="tool-banner"><h1>JavaScript (Node.js)</h1><p>Terminal Guide & Documentation</p></div>
+
+<main>
+    <article>
+        <h1>JavaScript (Node.js)</h1>
+        
+        <section>
+            <h2>1. Introduction & Use Cases</h2>
+            <p>JavaScript is no longer just for browsers. With Node.js in Termux, you can build powerful server-side applications, automation scripts, and even sophisticated hacking tools directly on your mobile device.</p>
+            <ul>
+                <li><strong>Backend Development:</strong> Creating REST APIs and web servers using Express.js.</li>
+                <li><strong>Tooling:</strong> Writing CLI tools and automation scripts.</li>
+                <li><strong>Networking:</strong> Building real-time applications with WebSockets.</li>
+                <li><strong>Security:</strong> Analyzing web traffic and creating security scanners.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. Basic Syntax & Variables</h2>
+            <p>JavaScript uses modern ES6+ syntax. To install Node.js in Termux, use <code>pkg install nodejs</code>.</p>
+            
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                    <div class="terminal-title">bash — basics.js</div>
+                </div>
+                <div class="terminal-body">
+                    <pre><code>// Modern variable declarations
+const platform = "Termux";
+let status = "learning";
+const isAwesome = true;
+
+console.log(`System: ${platform}`);
+console.log(`Current Status: ${status}`);</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Control Flow & Functions</h2>
+            <p>Functional programming and logical control in JavaScript.</p>
+            
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                    <div class="terminal-title">bash — functions.js</div>
+                </div>
+                <div class="terminal-body">
+                    <pre><code>// Arrow function example
+const greetUser = (name) => {
+    return `Welcome back, ${name}!`;
+};
+
+const users = ["Alice", "Bob", "Charlie"];
+users.forEach(user => {
+    console.log(greetUser(user));
+});</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>4. Core Commands Cheat-sheet</h2>
+            <ul>
+                <li><code>node script.js</code> - Run a JavaScript file.</li>
+                <li><code>npm init</code> - Initialize a new project.</li>
+                <li><code>npm install [package]</code> - Install a module.</li>
+                <li><code>process.platform</code> - Identify the OS platform.</li>
+                <li><code>fs.readFileSync()</code> - Read files from the system.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Popular Libraries & Frameworks</h2>
+            <ul>
+                <li><strong>Express.js:</strong> The most popular web framework for Node.js.</li>
+                <li><strong>Axios:</strong> Promise-based HTTP client for the browser and node.js.</li>
+                <li><strong>Puppeteer:</strong> Headless Chrome Node.js API for web scraping.</li>
+                <li><strong>Socket.io:</strong> Real-time bidirectional event-based communication.</li>
+                <li><strong>Lodash:</strong> A modern JavaScript utility library.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. Advanced Practical Example: Calculator</h2>
+            <p>A simple command-line calculator that takes arguments from the terminal.</p>
+            
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dots"><div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+                    <div class="terminal-title">bash — calculator.js</div>
+                </div>
+                <div class="terminal-body">
+                    <pre><code>// Simple CLI Calculator
+const args = process.argv.slice(2);
+const num1 = parseFloat(args[0]);
+const operator = args[1];
+const num2 = parseFloat(args[2]);
+
+const calculate = (a, op, b) => {
+    switch(op) {
+        case '+': return a + b;
+        case '-': return a - b;
+        case '*': return a * b;
+        case '/': return a / b;
+        default: return "Invalid Operator";
+    }
+};
+
+if (args.length === 3) {
+    console.log(`Result: ${calculate(num1, operator, num2)}`);
+} else {
+    console.log("Usage: node calculator.js 5 + 10");
+}</code></pre>
+                </div>
+            </div>
+        </section>
+    </article>
+</main>
+
+<section class="explore-tools" style="max-width: 900px; margin: 60px auto; padding: 0 20px;">
+    <h2 style="color: var(--accent-color); font-family: monospace; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 30px;">Explore More Tools</h2>
+    <div class="tool-grid-small">
+        <a href="python.html" class="tool-card-small">
+            <h3>Python</h3>
+            <p>Master automation and security scripting.</p>
+        </a>
+        <a href="cpp.html" class="tool-card-small">
+            <h3>C++</h3>
+            <p>Develop high-performance system tools.</p>
+        </a>
+        <a href="apache.html" class="tool-card-small">
+            <h3>Apache</h3>
+            <p>Host local websites in Termux.</p>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
+    <p>Ethical Disclaimer: All content is for educational purposes only. Stay ethical.</p>
+</footer>
+
+<button id="scrollToTop" title="Go to top">↑</button>
+
+<script>
+    const scrollBtn = document.getElementById("scrollToTop");
+    window.onscroll = function() {
+
+        let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let scrolled = (winScroll / height) * 100;
+        let progress = document.getElementById("reading-progress");
+        if (progress) progress.style.width = scrolled + "%";
+
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            scrollBtn.style.display = "block";
+        } else {
+            scrollBtn.style.display = "none";
+        }
+    };
+    scrollBtn.onclick = function() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+</script>
+
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Theme Toggle Script -->
+<script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const mainBody = document.body;
+    
+    // Check local storage on load
+    if (localStorage.getItem('theme') === 'dark') { 
+        mainBody.classList.add('dark-mode'); 
+    }
+    
+    // Toggle logic
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            mainBody.classList.toggle('dark-mode');
+            const isDark = mainBody.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    }
+</script>
+
+<script>
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js');
+        });
+    }
+
+    // PWA Install Logic
+    let deferredPrompt;
+    const installBtn = document.getElementById('installAppBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        // Update UI notify the user they can add to home screen
+        if (installBtn) installBtn.style.display = 'inline-block';
+    });
+
+    if (installBtn) {
+        installBtn.addEventListener('click', (e) => {
+            // hide our user interface that shows our A2HS button
+            installBtn.style.display = 'none';
+            // Show the prompt
+            deferredPrompt.prompt();
+            // Wait for the user to respond to the prompt
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the A2HS prompt');
+                } else {
+                    console.log('User dismissed the A2HS prompt');
+                }
+                deferredPrompt = null;
+            });
+        });
+    }
+</script>
+</body>
+</html>

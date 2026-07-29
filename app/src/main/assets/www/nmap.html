@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nmap in Termux - Complete Installation and Usage Guide</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10b981">
+    <link rel="stylesheet" href="astra-theme.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">TERMUX HUB</div>
+    <nav>
+        <a href="#">HOME</a>
+        <a href="#">REPOS</a>
+        <a href="#">SECURITY</a>
+        <a href="#">ABOUT</a>
+        <button id="installAppBtn" style="display:none; background:#10b981; color: var(--text-color); border:none; padding:8px 15px; border-radius:20px; cursor:pointer; font-weight:bold; margin-left:10px;">⬇️ Install App</button>
+</nav>
+</header>
+<div class="tool-banner"><h1>Nmap</h1><p>Terminal Guide & Documentation</p></div>
+
+<main>
+    <article>
+        <h1>Nmap in Termux - Complete Installation and Usage Guide</h1>
+        
+        <section>
+            <h2>What is nmap</h2>
+            <p><strong>Nmap</strong> (Network Mapper) is a free and open-source utility for network discovery and security auditing. Many systems and network administrators also find it useful for tasks such as network inventory, managing service upgrade schedules, and monitoring host or service uptime. In Termux, it allows you to <span class="highlight">scan networks, discover hosts, and detect open ports</span> directly from your Android device.</p>
+        </section>
+
+        <section>
+            <h2>Prerequisites</h2>
+            <p>Before installing Nmap, ensure your Termux setup meets these requirements:</p>
+            <ul>
+                <li><strong>Latest Termux:</strong> Ensure you are using the F-Droid version.</li>
+                <li><strong>Updated Packages:</strong> Run package updates to avoid dependency issues.</li>
+                <li><strong>Network Access:</strong> Nmap requires access to the network you intend to scan.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Installation Commands in Termux</h2>
+            <p>Installing Nmap in Termux is straightforward as it's available in the official repositories.</p>
+
+            <h3>1. Update Package Lists</h3>
+            <p>Always update your repository cache first.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>pkg update && pkg upgrade -y</pre>
+            </div>
+
+            <h3>2. Install Nmap</h3>
+            <p>Use the Termux package manager to install Nmap.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>pkg install nmap -y</pre>
+            </div>
+
+            <h3>3. Verify Installation</h3>
+            <p>Check if Nmap is installed correctly by checking its version.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>nmap --version</pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>Basic Usage & Examples</h2>
+            <p>Here are some fundamental Nmap commands to get you started with network scanning.</p>
+
+            <h3>Scan a Single IP or Domain</h3>
+            <p>The most basic scan against a target.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>nmap 192.168.1.1</pre>
+            </div>
+
+            <h3>Scan a Network Range</h3>
+            <p>Discover active hosts on a subnet.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>nmap 192.168.1.1-254</pre>
+            </div>
+
+            <h3>Detect Operating System and Services</h3>
+            <p>Use the <code>-A</code> flag for aggressive scanning, including OS detection, version detection, script scanning, and traceroute.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>nmap -A example.com</pre>
+            </div>
+            
+            <h3>Fast Scan</h3>
+            <p>Scan fewer ports than the default scan for quicker results.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>nmap -F 192.168.1.1</pre>
+            </div>
+        </section>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
+    <p>Disclaimer: This tutorial is for educational purposes only. Stay ethical and always have permission before testing any network.</p>
+</footer>
+
+<script>
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js');
+        });
+    }
+
+    // PWA Install Logic
+    let deferredPrompt;
+    const installBtn = document.getElementById('installAppBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        // Update UI notify the user they can add to home screen
+        if (installBtn) installBtn.style.display = 'inline-block';
+    });
+
+    if (installBtn) {
+        installBtn.addEventListener('click', (e) => {
+            // hide our user interface that shows our A2HS button
+            installBtn.style.display = 'none';
+            // Show the prompt
+            deferredPrompt.prompt();
+            // Wait for the user to respond to the prompt
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the A2HS prompt');
+                } else {
+                    console.log('User dismissed the A2HS prompt');
+                }
+                deferredPrompt = null;
+            });
+        });
+    }
+</script>
+</body>
+</html>

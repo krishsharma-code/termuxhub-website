@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subfinder in Termux - Complete Installation and Usage Guide</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10b981">
+    <link rel="stylesheet" href="astra-theme.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">TERMUX HUB</div>
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="nmap.html">NMAP</a>
+        <a href="john.html">JOHN</a>
+        <a href="#">ABOUT</a>
+        <button id="installAppBtn" style="display:none; background:#10b981; color: var(--text-color); border:none; padding:8px 15px; border-radius:20px; cursor:pointer; font-weight:bold; margin-left:10px;">⬇️ Install App</button>
+</nav>
+</header>
+<div class="tool-banner"><h1>Subfinder</h1><p>Terminal Guide & Documentation</p></div>
+
+<main>
+    <article>
+        <h1>Subfinder in Termux - Complete Installation and Usage Guide</h1>
+        
+        <section>
+            <h2>What is subfinder</h2>
+            <p><strong>Subfinder</strong> is a subdomain discovery tool that discovers valid subdomains for websites by using passive online sources. It has a simple modular architecture and is optimized for speed. Subfinder is built for doing one thing only - passive subdomain enumeration, and it does that very well. In Termux, it provides security researchers with a <span class="highlight">fast and efficient way to map out an organization's attack surface</span> directly from their mobile device.</p>
+        </section>
+
+        <section>
+            <h2>Prerequisites</h2>
+            <p>Before installing Subfinder, ensure your Termux environment is ready:</p>
+            <ul>
+                <li><strong>Go Language:</strong> Subfinder is written in Go, so the Go compiler is required for installation.</li>
+                <li><strong>Network Access:</strong> Required to query various passive online sources.</li>
+                <li><strong>API Keys (Optional):</strong> While Subfinder works out of the box, adding API keys for services like BinaryEdge, Censys, and Shodan significantly improves results.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Installation Commands in Termux</h2>
+            <p>The recommended way to install Subfinder in Termux is using the Go package manager.</p>
+
+            <h3>1. Update and Install Go</h3>
+            <p>Ensure your packages are fresh and install the Golang environment.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>pkg update && pkg upgrade -y && pkg install golang -y</pre>
+            </div>
+
+            <h3>2. Install Subfinder</h3>
+            <p>Use <code>go install</code> to fetch and compile the latest version of Subfinder.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest</pre>
+            </div>
+
+            <h3>3. Configure Environment Path</h3>
+            <p>Ensure your Go binary path is added to your shell path to run <code>subfinder</code> from anywhere.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>export PATH=$PATH:$(go env GOPATH)/bin</pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>Basic Usage & Examples</h2>
+            <p>Here are the most common commands to get started with subdomain discovery.</p>
+
+            <h3>Basic Domain Enumeration</h3>
+            <p>Find subdomains for a specific target domain.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>subfinder -d example.com</pre>
+            </div>
+
+            <h3>Silent Mode (Output only)</h3>
+            <p>Use silent mode if you want to pipe the output to other tools.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>subfinder -d example.com -silent</pre>
+            </div>
+
+            <h3>Save Output to a File</h3>
+            <p>Write the discovered subdomains to a text file for later analysis.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>subfinder -d example.com -o results.txt</pre>
+            </div>
+            
+            <h3>Using Multiple Domains</h3>
+            <p>You can also provide a list of domains from a file.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>subfinder -dL domains.txt</pre>
+            </div>
+        </section>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
+    <p>Disclaimer: This tutorial is for educational purposes only. Always ensure you have permission before performing enumeration on any domain.</p>
+</footer>
+
+<script>
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js');
+        });
+    }
+
+    // PWA Install Logic
+    let deferredPrompt;
+    const installBtn = document.getElementById('installAppBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        // Update UI notify the user they can add to home screen
+        if (installBtn) installBtn.style.display = 'inline-block';
+    });
+
+    if (installBtn) {
+        installBtn.addEventListener('click', (e) => {
+            // hide our user interface that shows our A2HS button
+            installBtn.style.display = 'none';
+            // Show the prompt
+            deferredPrompt.prompt();
+            // Wait for the user to respond to the prompt
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the A2HS prompt');
+                } else {
+                    console.log('User dismissed the A2HS prompt');
+                }
+                deferredPrompt = null;
+            });
+        });
+    }
+</script>
+</body>
+</html>

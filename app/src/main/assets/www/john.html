@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John the Ripper in Termux - Complete Installation and Usage Guide</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10b981">
+    <link rel="stylesheet" href="astra-theme.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">TERMUX HUB</div>
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="nmap.html">NMAP</a>
+        <a href="#">SECURITY</a>
+        <a href="#">ABOUT</a>
+        <button id="installAppBtn" style="display:none; background:#10b981; color: var(--text-color); border:none; padding:8px 15px; border-radius:20px; cursor:pointer; font-weight:bold; margin-left:10px;">⬇️ Install App</button>
+</nav>
+</header>
+<div class="tool-banner"><h1>John the Ripper</h1><p>Terminal Guide & Documentation</p></div>
+
+<main>
+    <article>
+        <h1>John the Ripper in Termux - Complete Installation and Usage Guide</h1>
+        
+        <section>
+            <h2>What is johntheripper</h2>
+            <p><strong>John the Ripper</strong> is a free password cracking software tool. Originally developed for the Unix operating system, it can run on fifteen different platforms. It is one of the most popular password testing and breaking programs as it combines a number of password crackers into one package, autodetects password hash types, and includes a customizable cracker. In Termux, it allows you to <span class="highlight">audit password security and perform brute-force or dictionary attacks</span> on various hash formats.</p>
+        </section>
+
+        <section>
+            <h2>Prerequisites</h2>
+            <p>Ensure your Termux environment is ready for password auditing:</p>
+            <ul>
+                <li><strong>Storage Access:</strong> Essential for loading wordlists (dictionaries).</li>
+                <li><strong>Processing Power:</strong> Cracking is CPU-intensive; ensure your device is charged.</li>
+                <li><strong>Wordlists:</strong> You will need a wordlist file (like rockyou.txt) for dictionary attacks.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Installation Commands in Termux</h2>
+            <p>Follow these commands to install John the Ripper on your Android device.</p>
+
+            <h3>1. Update Environment</h3>
+            <p>Refresh your repository index to get the latest package versions.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>pkg update && pkg upgrade -y</pre>
+            </div>
+
+            <h3>2. Install John</h3>
+            <p>Install the John the Ripper package from the official Termux repo.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>pkg install john -y</pre>
+            </div>
+
+            <h3>3. Confirm Installation</h3>
+            <p>Run the command without arguments to see the help menu and verify setup.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>john</pre>
+            </div>
+        </section>
+
+        <section>
+            <h2>Basic Usage & Examples</h2>
+            <p>Here are common ways to use John the Ripper in your mobile terminal.</p>
+
+            <h3>Simple Crack (Single Crack Mode)</h3>
+            <p>Let John try to crack a hash file using its default smart rules.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>john hash_file.txt</pre>
+            </div>
+
+            <h3>Dictionary Attack</h3>
+            <p>Use a specific wordlist (like <code>rockyou.txt</code>) against a hash file.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>john --wordlist=rockyou.txt hash_file.txt</pre>
+            </div>
+
+            <h3>Show Cracked Passwords</h3>
+            <p>Display the passwords that have been successfully cracked from a file.</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>john --show hash_file.txt</pre>
+            </div>
+            
+            <h3>Incremental Mode (Brute Force)</h3>
+            <p>Try every possible character combination (can take a long time).</p>
+            <div class="code-block">
+                <div class="code-block-header">
+                    <span>BASH - TERMINAL</span>
+                    <span class="copy-label">COPY CODE</span>
+                </div>
+                <pre>john --incremental hash_file.txt</pre>
+            </div>
+        </section>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
+    <p>Disclaimer: This tutorial is for educational purposes only. Stay ethical and always have permission before testing any password security.</p>
+</footer>
+
+<script>
+    // Service Worker Registration
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js');
+        });
+    }
+
+    // PWA Install Logic
+    let deferredPrompt;
+    const installBtn = document.getElementById('installAppBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        // Stash the event so it can be triggered later.
+        deferredPrompt = e;
+        // Update UI notify the user they can add to home screen
+        if (installBtn) installBtn.style.display = 'inline-block';
+    });
+
+    if (installBtn) {
+        installBtn.addEventListener('click', (e) => {
+            // hide our user interface that shows our A2HS button
+            installBtn.style.display = 'none';
+            // Show the prompt
+            deferredPrompt.prompt();
+            // Wait for the user to respond to the prompt
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('User accepted the A2HS prompt');
+                } else {
+                    console.log('User dismissed the A2HS prompt');
+                }
+                deferredPrompt = null;
+            });
+        });
+    }
+</script>
+</body>
+</html>
