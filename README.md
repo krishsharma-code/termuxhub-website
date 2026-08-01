@@ -18,6 +18,7 @@ This repository now includes a native Android WebView wrapper for the Termux Hub
   - `src/main/res/` - App theme, launcher icons, and layout resources
 - `build.gradle`, `settings.gradle`, `gradle.properties` - Android Gradle configuration
 
+
 ## Build APK locally
 
 ### Prerequisites
