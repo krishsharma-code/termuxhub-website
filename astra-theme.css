@@ -318,3 +318,32 @@ li { margin-bottom: 10px; font-size: 1.02rem; }
     * { transition: none !important; animation: none !important; }
     html { scroll-behavior: auto; }
 }
+
+/* ---- Kali toolkit, sitemap and table additions ---- */
+.tool-banner h1, .tool-banner-title { font-size: 2.2rem; margin: 0 0 6px; }
+.table-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow-sm); margin: 18px 0 30px; }
+.script-table { margin: 0 !important; box-shadow: none !important; }
+.script-table td:first-child { white-space: nowrap; }
+.script-table code { background: none; border: none; padding: 0; color: var(--accent-strong); }
+.script-filter { width: 100%; padding: 13px 20px; border-radius: 50px; border: 1px solid var(--border-color); background: var(--card-bg); color: var(--text-color); font-size: 1rem; margin: 6px 0 4px; outline: none; }
+.script-filter:focus { border-color: var(--accent-color); box-shadow: 0 0 0 4px var(--accent-soft); }
+.kali-stats { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0 8px; }
+.kali-stats span { background: var(--accent-soft); border: 1px solid var(--border-color); border-radius: 10px; padding: 10px 16px; font-size: .95rem; }
+.kali-stats strong { color: var(--accent-strong); font-size: 1.15rem; }
+.kali-card-top { background: #1e293b; color: #10b981; font-weight: 700; text-align: center; padding: 16px 14px; border-radius: 10px; margin-bottom: 14px; font-family: 'Fira Code', monospace; font-size: .82rem; letter-spacing: .06em; text-transform: uppercase; }
+.checks-ol { margin: 0 0 22px 22px; }
+.checks-ol li { margin-bottom: 10px; }
+.site-map { max-width: 1000px; margin: 56px auto 0; padding: 30px 24px 6px; border-top: 1px solid var(--border-color); }
+.site-map__title { font-size: 1.05rem; margin: 0 0 16px; padding: 0; border: none; }
+.site-map__title::before { content: none; }
+.site-map__cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 22px; }
+.site-map__cols h3 { font-size: .76rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-dim); margin: 0 0 10px; font-family: 'Fira Code', monospace; }
+.site-map__cols a { display: block; color: var(--text-color); text-decoration: none; font-size: .88rem; padding: 4px 0; }
+.site-map__cols a:hover { color: var(--accent-strong); }
+@media (max-width: 768px) { .tool-banner h1, .tool-banner-title { font-size: 1.55rem; } }
+
+/* mobile: drop the middle "Category" column so the script table fits better */
+@media (max-width: 768px) {
+    .script-table th:nth-child(2), .script-table td:nth-child(2) { display: none; }
+    .site-map { padding: 24px 16px 0; margin-top: 40px; }
+}
