@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Hardening Scripts for Kali Linux (SSH, Kernel, Docker) | Termux Hub</title>
+<meta name="description" content="System hardening scripts for Kali Linux: SSH brute-force defence, kernel parameter tuning, iptables/UFW rules, USB autorun blocking and a read-only Docker container audit.">
+<meta name="keywords" content="linux hardening script, kernel parameter tuner, ssh bruteforce defense, docker security audit, kali hardening">
+<meta name="author" content="Krish Sharma">
+<meta name="theme-color" content="#10b981">
+<link rel="canonical" href="https://krishsharma-code.github.io/termuxhub-website/kali-system-hardening.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Termux Hub">
+<meta property="og:title" content="System Hardening Scripts for Kali Linux (SSH, Kernel, Docker) | Termux Hub">
+<meta property="og:description" content="System hardening scripts for Kali Linux: SSH brute-force defence, kernel parameter tuning, iptables/UFW rules, USB autorun blocking and a read-only Docker container audit.">
+<meta property="og:url" content="https://krishsharma-code.github.io/termuxhub-website/kali-system-hardening.html">
+<meta property="og:image" content="https://krishsharma-code.github.io/termuxhub-website/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="System Hardening Scripts for Kali Linux (SSH, Kernel, Docker) | Termux Hub">
+<meta name="twitter:description" content="System hardening scripts for Kali Linux: SSH brute-force defence, kernel parameter tuning, iptables/UFW rules, USB autorun blocking and a read-only Docker container audit.">
+<meta name="twitter:image" content="https://krishsharma-code.github.io/termuxhub-website/og-image.png">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="astra-theme.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Kali System Hardening & Container Security Scripts", "description": "System hardening scripts for Kali Linux: SSH brute-force defence, kernel parameter tuning, iptables/UFW rules, USB autorun blocking and a read-only Docker container audit.", "url": "https://krishsharma-code.github.io/termuxhub-website/kali-system-hardening.html", "isPartOf": {"@type": "WebSite", "name": "Termux Hub", "url": "https://krishsharma-code.github.io/termuxhub-website/"}}</script>
+</head>
+<body>
+<header>
+    <div class="logo">TERMUX HUB</div>
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="cheatsheet.html">CHEATSHEET</a>
+        <a href="kali-toolkit.html">KALI TOOLKIT</a>
+        <a href="index.html#about">ABOUT</a>
+        <button id="installAppBtn" style="display:none;background:#10b981;color:var(--text-color);border:none;padding:8px 15px;border-radius:20px;cursor:pointer;font-weight:bold;margin-left:10px;">&#11015;&#65039; Install App</button><button id="theme-toggle" style="background:#10b981;color:var(--text-color);border:none;padding:8px 15px;border-radius:20px;cursor:pointer;font-weight:bold;margin-left:10px;">&#127763; Theme</button>
+    </nav>
+    <div id="google_translate_element"></div>
+</header>
+<div class="tool-banner"><div class="tool-banner-title">Kali · System Hardening</div><p>Termux Hub &middot; Kali Linux</p></div>
+<main>
+<article>
+<h1>Kali System Hardening &amp; Container Security Scripts</h1>
+<p>System hardening and container security — SSH brute-force defence, kernel parameter tuning, iptables and UFW rule compilation, USB autorun blocking, API key leak scanning and a read-only Docker container audit that flags privilege-escalation misconfigurations.</p>
+<input type="text" id="scriptFilter" class="script-filter" placeholder="&#128269; Filter scripts in this module...">
+<h2>Kali · System Hardening &mdash; script list</h2>
+<div class="table-wrap"><table class="cheatsheet-table script-table"><thead><tr><th>Script</th><th>Category</th><th>What it does</th></tr></thead><tbody><tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/process_anomaly_hunter.py" target="_blank" rel="noopener"><code>process_anomaly_hunter.py</code></a></td><td>Hardening</td><td>Inspects `/proc` for unlinked binaries and odd execution paths.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/shadow_file_integrity.py" target="_blank" rel="noopener"><code>shadow_file_integrity.py</code></a></td><td>Hardening</td><td>Audits `/etc/shadow` permissions and ownership.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/netstat_log_parser.py" target="_blank" rel="noopener"><code>netstat_log_parser.py</code></a></td><td>Hardening</td><td>Detects unprivileged ports bound to public interfaces.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/systemd_service_auditor.py" target="_blank" rel="noopener"><code>systemd_service_auditor.py</code></a></td><td>Hardening</td><td>Flags services running from non-standard or risky paths.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/api_key_leak_scanner.py" target="_blank" rel="noopener"><code>api_key_leak_scanner.py</code></a></td><td>Hardening</td><td>Regex-scans code for hardcoded API keys and secrets.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/subnet_ping_sweeper.py" target="_blank" rel="noopener"><code>subnet_ping_sweeper.py</code></a></td><td>Network Security</td><td>Rapid multi-threaded ping sweep for host discovery.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/port_banner_grabber.py" target="_blank" rel="noopener"><code>port_banner_grabber.py</code></a></td><td>Network Security</td><td>Service fingerprinting and banner grabbing for vulnerability mapping.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/mac_address_spoofer.py" target="_blank" rel="noopener"><code>mac_address_spoofer.py</code></a></td><td>Network Security</td><td>Randomises and assigns new MAC addresses to interfaces.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/dns_zone_transfer_check.py" target="_blank" rel="noopener"><code>dns_zone_transfer_check.py</code></a></td><td>Network Security</td><td>Attempts AXFR transfers to map internal DNS topology.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/termux_environment_mapper.py" target="_blank" rel="noopener"><code>termux_environment_mapper.py</code></a></td><td>Environment Security</td><td>Audits permissions and tools in mobile Termux environments.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/ufw_rules_compiler.sh" target="_blank" rel="noopener"><code>ufw_rules_compiler.sh</code></a></td><td>Hardening</td><td>Compiles net rules, clears dangling entries, hardens conntrack.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/ssh_bruteforce_defense.sh" target="_blank" rel="noopener"><code>ssh_bruteforce_defense.sh</code></a></td><td>Hardening</td><td>Dynamically blacklists malicious IPs from auth logs.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/kernel_parameter_tuner.sh" target="_blank" rel="noopener"><code>kernel_parameter_tuner.sh</code></a></td><td>Hardening</td><td>Hardens kernel parameters against spoofing and redirects.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/untrusted_ppa_purger.sh" target="_blank" rel="noopener"><code>untrusted_ppa_purger.sh</code></a></td><td>Hardening</td><td>Verifies repository signatures and purges untrusted sources.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/auditd_report_aggregator.sh" target="_blank" rel="noopener"><code>auditd_report_aggregator.sh</code></a></td><td>Hardening</td><td>Compiles core logs and snapshots into a locked report.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/iptables_reset_secure.sh" target="_blank" rel="noopener"><code>iptables_reset_secure.sh</code></a></td><td>Hardening</td><td>Applies a strict default-drop iptables policy.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/rogue_process_killer.sh" target="_blank" rel="noopener"><code>rogue_process_killer.sh</code></a></td><td>Hardening</td><td>Terminates high-CPU background processes without a TTY.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/cronjob_audit_reporter.sh" target="_blank" rel="noopener"><code>cronjob_audit_reporter.sh</code></a></td><td>Hardening</td><td>Scans system/user cronjobs for suspicious persistence.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/usb_autorun_blocker.sh" target="_blank" rel="noopener"><code>usb_autorun_blocker.sh</code></a></td><td>Hardening</td><td>Blocks automated mounting and execution from USB devices.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/kali_update_cleaner.sh" target="_blank" rel="noopener"><code>kali_update_cleaner.sh</code></a></td><td>Maintenance</td><td>Deep maintenance: system updates and package-cache cleaning.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/docker_container_audit.sh" target="_blank" rel="noopener"><code>docker_container_audit.sh</code></a></td><td>Container Security</td><td>Read-only audit of containers for privileged mode, host namespaces, and risky mounts.</td></tr></tbody></table></div>
+<h2>Code samples</h2>
+<h3>kernel_parameter_tuner.sh — harden IPv4 sysctl values</h3>
+<pre>#!/bin/bash
+# SAFE_HELP_GUARD: non-destructive --help (exits before any state change).
+if [ "${1:-}" = "-h" ] || [ "${1:-}" = "--help" ]; then
+    echo "Usage: $(basename "$0") [options]"
+    echo "This is a state-changing tool. --help makes no changes and exits."
+    exit 0
+fi
+
+# Kernel Parameter Tuner
+# Modifies system memory parameters to prevent routing spoof injection over network vectors.
+
+echo "=== Kernel Parameter Tuner ==="
+
+if [[ $EUID -ne 0 ]]; then
+   echo "[!] This script must be run as root." 
+   exit 1
+fi
+
+# Hardening IPv4 networking
+echo "[*] Hardening network stack (IPv4)..."
+
+# Ignore ICMP broadcasts
+sysctl -w net.ipv4.icmp_echo_ignore_broadcasts=1
+
+# Ignore bogus ICMP errors
+sysctl -w net.ipv4.icmp_ignore_bogus_error_responses=1
+
+# Do not accept IP source route packets
+sysctl -w net.ipv4.conf.all.accept_source_route=0
+sysctl -w net.ipv4.conf.default.accept_source_route=0
+
+# Disable ICMP redirect acceptance
+sysctl -w net.ipv4.conf.all.accept_redirects=0
+sysctl -w net.ipv4.conf.default.accept_redirects=0
+
+# Enable IP spoofing protection (Reverse Path Filtering)
+sysctl -w net.ipv4.conf.all.rp_filter=1
+sysctl -w net.ipv4.conf.default.rp_filter=1
+
+# Log Martians (packets with impossible source addresses)
+sysctl -w net.ipv4.conf.all.log_martians=1
+sysctl -w net.ipv4.conf.default.log_martians=1
+
+# Reload sysctl settings from config file
+sysctl -p
+
+echo "[+] Kernel network parameters have been hardened."</pre>
+<h3>api_key_leak_scanner.py — scan for hardcoded secrets</h3>
+<pre>#!/usr/bin/env python3
+"""Scan a directory tree for hardcoded secrets and credentials.
+
+The scanner walks a workspace, matches the contents of every text file against
+a set of well-known credential signatures (generic API keys, Google API keys,
+AWS access keys, Slack tokens and GitHub personal access tokens), and reports
+each hit. It is intended to run locally and as a lightweight CI gate before
+code is committed or pushed.
+
+Exit codes:
+    0 - scan completed and no potential secrets were found
+    1 - scan completed and at least one potential secret was found
+    2 - the scan could not run (for example, the target path does not exist)
+
+Safety note:
+    Matched secret material is never echoed to the console. Only a redacted
+    context snippet is printed, so scanner output can be pasted into CI logs or
+    bug reports without re-leaking the very credential it detected.
+"""
+
+import argparse
+import os
+import re
+import sys
+from pathlib import Path
+
+# --- Configuration ----------------------------------------------------------
+
+# Directories that never hold first-party source and are expensive or pointless
+# to walk (VCS metadata, virtual environments, caches, vendored dependencies).
+SKIP_DIRS = {
+    ".git", ".hg", ".svn", ".tox", ".venv", "venv", "__pycache__", "node_modules",
+}
+
+# Binary and archive extensions that must not be read as text.
+SKIP_EXTENSIONS = {
+    ".png", ".jpg", ".jpeg", ".gif", ".ico", ".bmp", ".tiff",
+    ".exe", ".dll", ".so", ".dylib", ".bin", ".o", ".a",
+    ".pyc", ".pyo", ".class", ".jar",
+    ".zip", ".gz", ".tgz", ".bz2", ".xz", ".tar", ".7z", ".rar", ".pdf",
+}
+
+# Files larger than this are skipped: they are almost never source code and
+# reading them would waste memory. Keeps the scanner's footprint bounded.
+MAX_FILE_BYTES = 5 * 1024 * 1024  # 5 MiB
+
+# Named credential signatures. The *last* capturing group of each pattern is
+# treated as the secret value so it can be redacted before anything is printed.
+SECRET_PATTERNS = {
+    "Generic API Key": re.compile(
+        r"(?i)(api[_-]?key|apikey|auth[_-]?token|access[_-]?token)"
+        r"[\s:=]+['\"]([a-zA-Z0-9]{16,})['\"]"
+    ),
+    "Google API Key": re.compile(r"(AIza[0-9A-Za-z\-_]{35})"),
+    "AWS Access Key": re.compile(r"(AKIA[0-9A-Z]{16})"),
+    "Slack Token": re.compile(r"(xox[baprs]-[0-9a-zA-Z]{10,48})"),
+    "GitHub Personal Access Token": re.compile(r"(ghp_[a-zA-Z0-9]{36})"),
+}
+
+REDACTION_MARKER = "***REDACTED***"
+
+
+def _secret_span(match):
+    """Return the ``(start, end)`` offsets of the secret inside ``match``.
+
+    The secret is the last non-empty capturing group, or the whole match when
+    the pattern defines no capturing groups.
+    """
+    for index in range(match.re.groups, 0, -1):
+        if match.group(index) is not None:
+            return match.start(index), match.end(index)
+    return match.start(0), match.end(0)
+
+
+def mask_line(line, match):
+    """Return ``line`` with the matched secret replaced by a fixed marker.
+
+    The surrounding context is preserved so a reviewer can locate the leak, but
+    the credential itself is never part of the returned string.
+    """
+    start, end = _secret_span(match)
+    redacted = f"{line[:start]}{REDACTION_MARKER}{line[end:]}"
+    return redacted.strip()
+
+
+def _looks_binary(path):
+    """Return True when the first block of ``path`` contains a NUL byte."""
+    try:
+        with path.open("rb") as probe:
+            return b"\x00" in probe.read(1024)
+    except OSError:
+        # If we cannot even read the header, let the text pass below report it.
+        return False
+
+
+def scan_file(path):
+    """Scan a single file and return a list of finding dictionaries.
+
+    Each finding is ``{"name", "path", "line", "snippet"}`` where ``snippet``
+    is redacted. Binary files, oversized files and unreadable files return an
+    empty list instead of raising, so one bad file cannot abort a whole scan.
+
+    Args:
+        path: A :class:`pathlib.Path` to a regular file.
+
+    Returns:
+        A list of finding dictionaries (possibly empty).
+    """
+    findings = []
+    path = Path(path)
+    try:
+        if path.suffix.lower() in SKIP_EXTENSIONS:
+            return findings
+
+        size = path.stat().st_size
+        if size &gt; MAX_FILE_BYTES:
+            print(f"[!] Skipping large file ({size} bytes): {path}")
+            return findings
+
+        if _looks_binary(path):
+            return findings
+
+        with path.open("r", encoding="utf-8", errors="ignore") as handle:
+            for line_no, line in enumerate(handle, start=1):
+                for name, pattern in SECRET_PATTERNS.items():
+                    for match in pattern.finditer(line):
+                        findings.append({
+                            "name": name,
+                            "path": str(path),
+                            "line": line_no,
+                            "snippet": mask_line(line, match),
+                        })
+    except OSError as exc:
+        print(f"[!] Could not read {path}: {exc}")
+    return findings
+
+
+def scan_directory(directory):
+    """Recursively scan ``directory`` and return every finding.
+
+    Skipped directories are pruned in place so :func:`os.walk` never descends
+    into them.
+
+    Args:
+        directory: Root directory to walk (str or :class:`pathlib.Path`).
+
+    Returns:
+        A flat list of finding dictionaries across all scanned files.
+    """
+    root = Path(directory)
+    findings = []
+    for current, dirs, files in os.walk(root):
+        dirs[:] = sorted(d for d in dirs if d not in SKIP_DIRS)
+        for name in sorted(files):
+            findings.extend(scan_file(Path(current) / name))
+    return findings
+
+
+def report(findings):
+    """Print a human-readable report for ``findings``."""
+    for finding in findings:
+        print(f"[!] LEAK DETECTED [{finding['name']}] "
+              f"{finding['path']}:{finding['line']}")
+        print(f"    {finding['snippet']}")
+    if not findings:
+        print("[+] No hardcoded API keys or secrets detected.")
+    else:
+        print(f"[*] Scan complete. {len(findings)} potential leaks found.")
+
+
+def main(argv=None):
+    """Parse arguments, run the scan and return a process exit code."""
+    parser = argparse.ArgumentParser(
+        description="Scan a directory tree for hardcoded API keys and secrets.")
+    parser.add_argument(
+        "directory", nargs="?", default=".",
+        help="directory to scan (default: current directory)")
+    args = parser.parse_args(argv)
+
+    target = Path(args.directory)
+    print("=== API Key Leak Scanner ===")
+    print(f"[*] Scanning directory: {target}")
+
+    if not target.is_dir():
+        print(f"[-] Error: {target} is not a directory.")
+        return 2
+
+    findings = scan_directory(target)
+    report(findings)
+    return 1 if findings else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())</pre>
+<h2>Related pages</h2>
+<ul><li><a href="kali-defensive-monitoring.html">Defensive monitoring scripts</a></li><li><a href="kali-enumeration.html">Enumeration scripts</a></li><li><a href="kali-toolkit.html">Back to the Kali Toolkit hub</a></li></ul>
+<p><a class="btn-view" href="https://github.com/krishsharma-code/kali-linux-automation" target="_blank" rel="noopener">View the full toolkit on GitHub</a></p><script>
+(function(){
+  var inp=document.getElementById('scriptFilter');
+  if(!inp) return;
+  inp.addEventListener('keyup',function(){
+    var q=this.value.toLowerCase();
+    document.querySelectorAll('.script-table tbody tr').forEach(function(tr){
+      tr.style.display = tr.innerText.toLowerCase().indexOf(q) > -1 ? '' : 'none';
+    });
+  });
+})();
+</script>
+</article>
+</main>
+<section class="site-map" aria-label="Site map">
+    <h2 class="site-map__title">Explore Termux Hub</h2>
+    <div class="site-map__cols">
+        <div>
+            <h3>Kali Toolkit</h3>
+            <a href="kali-toolkit.html">Toolkit home (145 scripts)</a>
+            <a href="kali-linux-foundations.html">Foundations</a>
+            <a href="kali-network-recon.html">Network recon</a>
+            <a href="kali-defensive-monitoring.html">Defensive monitoring</a>
+            <a href="kali-vulnerability-scanning.html">Vulnerability scanning</a>
+            <a href="kali-enumeration.html">Enumeration</a>
+            <a href="kali-system-hardening.html">System hardening</a>
+        </div>
+        <div>
+            <h3>Termux tool guides</h3>
+            <a href="apache.html">Apache</a>
+<a href="brutus.html">Brutus</a>
+<a href="cloudflare.html">Cloudflare</a>
+<a href="cool-commands.html">Cool Commands</a>
+<a href="cpp.html">Cpp</a>
+<a href="findomain.html">Findomain</a>
+<a href="fsociety.html">Fsociety</a>
+<a href="geo-recon.html">Geo Recon</a>
+<a href="ghost-eye.html">Ghost Eye</a>
+<a href="hacktronian.html">Hacktronian</a>
+<a href="ipicker.html">Ipicker</a>
+<a href="javascript.html">Javascript</a>
+<a href="john.html">John</a>
+<a href="local-server.html">Local Server</a>
+<a href="manjaro.html">Manjaro</a>
+<a href="naabu.html">Naabu</a>
+<a href="ncat.html">Ncat</a>
+<a href="nmap.html">Nmap</a>
+<a href="nordvpn.html">Nordvpn</a>
+<a href="onex.html">Onex</a>
+<a href="pydictor.html">Pydictor</a>
+<a href="python.html">Python</a>
+<a href="quasar.html">Quasar</a>
+<a href="recondog.html">Recondog</a>
+<a href="subfinder.html">Subfinder</a>
+<a href="termux-banner.html">Termux Banner</a>
+<a href="ubuntu-gui.html">Ubuntu Gui</a>
+<a href="wafw00f.html">Wafw00F</a>
+<a href="web-recon.html">Web Recon</a>
+        </div>
+        <div>
+            <h3>Learn</h3>
+            <a href="index.html">Home</a>
+            <a href="cheatsheet.html">Termux cheatsheet</a>
+            <a href="python.html">Python</a>
+            <a href="javascript.html">JavaScript</a>
+            <a href="cpp.html">C++</a>
+            <a href="cool-commands.html">Cool Termux commands</a>
+            <a href="index.html#about">About Termux Hub</a>
+        </div>
+    </div>
+</section>
+<footer>
+    <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
+    <p>Educational resource for ethical security professionals and students. Only test systems you own or have explicit written permission to test.</p>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

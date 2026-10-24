@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>24 Kali Linux Foundation Scripts (Files, Networking, System Info) | Termux Hub</title>
+<meta name="description" content="24 beginner-friendly Bash and Python scripts for Kali Linux foundations: file operations, disk monitoring, log reading, local IP discovery and system information. Copy-paste ready.">
+<meta name="keywords" content="kali linux scripts, linux file operations script, bash system info, termux linux basics, kali beginner scripts">
+<meta name="author" content="Krish Sharma">
+<meta name="theme-color" content="#10b981">
+<link rel="canonical" href="https://krishsharma-code.github.io/termuxhub-website/kali-linux-foundations.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Termux Hub">
+<meta property="og:title" content="24 Kali Linux Foundation Scripts (Files, Networking, System Info) | Termux Hub">
+<meta property="og:description" content="24 beginner-friendly Bash and Python scripts for Kali Linux foundations: file operations, disk monitoring, log reading, local IP discovery and system information. Copy-paste ready.">
+<meta property="og:url" content="https://krishsharma-code.github.io/termuxhub-website/kali-linux-foundations.html">
+<meta property="og:image" content="https://krishsharma-code.github.io/termuxhub-website/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="24 Kali Linux Foundation Scripts (Files, Networking, System Info) | Termux Hub">
+<meta name="twitter:description" content="24 beginner-friendly Bash and Python scripts for Kali Linux foundations: file operations, disk monitoring, log reading, local IP discovery and system information. Copy-paste ready.">
+<meta name="twitter:image" content="https://krishsharma-code.github.io/termuxhub-website/og-image.png">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="astra-theme.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Kali Linux Foundations Scripts \u2014 Files, Networking & System Info", "description": "24 beginner-friendly Bash and Python scripts for Kali Linux foundations: file operations, disk monitoring, log reading, local IP discovery and system information. Copy-paste ready.", "url": "https://krishsharma-code.github.io/termuxhub-website/kali-linux-foundations.html", "isPartOf": {"@type": "WebSite", "name": "Termux Hub", "url": "https://krishsharma-code.github.io/termuxhub-website/"}}</script>
+</head>
+<body>
+<header>
+    <div class="logo">TERMUX HUB</div>
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="cheatsheet.html">CHEATSHEET</a>
+        <a href="kali-toolkit.html">KALI TOOLKIT</a>
+        <a href="index.html#about">ABOUT</a>
+        <button id="installAppBtn" style="display:none;background:#10b981;color:var(--text-color);border:none;padding:8px 15px;border-radius:20px;cursor:pointer;font-weight:bold;margin-left:10px;">&#11015;&#65039; Install App</button><button id="theme-toggle" style="background:#10b981;color:var(--text-color);border:none;padding:8px 15px;border-radius:20px;cursor:pointer;font-weight:bold;margin-left:10px;">&#127763; Theme</button>
+    </nav>
+    <div id="google_translate_element"></div>
+</header>
+<div class="tool-banner"><div class="tool-banner-title">Kali · Foundations</div><p>Termux Hub &middot; Kali Linux</p></div>
+<main>
+<article>
+<h1>Kali Linux Foundations Scripts — Files, Networking &amp; System Info</h1>
+<p>Start here. These Bash and Python scripts cover the Linux fundamentals every security learner needs first — creating and moving files, reading logs, checking disk space, discovering your local IP, listing open ports and printing system information. Each script is short enough to read in a minute and safe to run on your own machine.</p>
+<input type="text" id="scriptFilter" class="script-filter" placeholder="&#128269; Filter scripts in this module...">
+<h2>Kali · Foundations &mdash; script list</h2>
+<div class="table-wrap"><table class="cheatsheet-table script-table"><thead><tr><th>Script</th><th>Category</th><th>What it does</th></tr></thead><tbody><tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/create_system_directory.py" target="_blank" rel="noopener"><code>create_system_directory.py</code></a></td><td>Foundations</td><td>Scaffolds an organised system directory tree for the toolkit.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/write_sample_logs.py" target="_blank" rel="noopener"><code>write_sample_logs.py</code></a></td><td>Foundations</td><td>Generates sample log files for testing monitoring and parsing scripts.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/run_basic_ping.py" target="_blank" rel="noopener"><code>run_basic_ping.py</code></a></td><td>Networking</td><td>Simple connectivity check against common targets such as Google DNS.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/list_directory_contents.py" target="_blank" rel="noopener"><code>list_directory_contents.py</code></a></td><td>File Ops</td><td>Walks and prints a directory structure for inspection.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/file_permissions.sh" target="_blank" rel="noopener"><code>file_permissions.sh</code></a></td><td>File Ops</td><td>Demonstrates `chmod` and execution-right management.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/connectivity_check.sh" target="_blank" rel="noopener"><code>connectivity_check.sh</code></a></td><td>Networking</td><td>Basic connectivity and address discovery with `ping`.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/ip_recon.sh" target="_blank" rel="noopener"><code>ip_recon.sh</code></a></td><td>Networking</td><td>Extracts the local IP address using `ip addr` and `grep`.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/file_ops.sh" target="_blank" rel="noopener"><code>file_ops.sh</code></a></td><td>File Ops</td><td>Automates `touch`, `cp`, `mv`, and `rm` operations.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/grep_search.sh" target="_blank" rel="noopener"><code>grep_search.sh</code></a></td><td>Text Processing</td><td>Pattern matching and search within log files using `grep`.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/system_updater.sh" target="_blank" rel="noopener"><code>system_updater.sh</code></a></td><td>Maintenance</td><td>Automated system update and package management.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/user_recon.sh" target="_blank" rel="noopener"><code>user_recon.sh</code></a></td><td>Recon</td><td>Reports on the current user's sessions and privileges.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/log_reader.sh" target="_blank" rel="noopener"><code>log_reader.sh</code></a></td><td>Log Analysis</td><td>Reads file segments with `cat`, `head`, and `tail`.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/hidden_files.sh" target="_blank" rel="noopener"><code>hidden_files.sh</code></a></td><td>File Ops</td><td>Explores hidden-file creation and discovery (`ls -la`).</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/process_hunter.sh" target="_blank" rel="noopener"><code>process_hunter.sh</code></a></td><td>Process Management</td><td>Tracks and filters background processes with `ps aux`.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/project_directory_setup.sh" target="_blank" rel="noopener"><code>project_directory_setup.sh</code></a></td><td>File Ops</td><td>Quickly scaffolds a standard project directory structure.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/disk_monitor.sh" target="_blank" rel="noopener"><code>disk_monitor.sh</code></a></td><td>Monitoring</td><td>Reports disk-space usage in a human-readable format.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/file_backup.sh" target="_blank" rel="noopener"><code>file_backup.sh</code></a></td><td>Backup</td><td>Creates a `.bak` backup copy of a chosen file.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/ip_fetcher.sh" target="_blank" rel="noopener"><code>ip_fetcher.sh</code></a></td><td>Networking</td><td>Detects and prints the local IP address.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/local_net_analyzer.sh" target="_blank" rel="noopener"><code>local_net_analyzer.sh</code></a></td><td>Networking</td><td>Consolidated report of IP info, routing tables, and listening services.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/mass_file_creator.sh" target="_blank" rel="noopener"><code>mass_file_creator.sh</code></a></td><td>File Ops</td><td>Demonstrates bulk file creation in a single pass.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/network_ping.sh" target="_blank" rel="noopener"><code>network_ping.sh</code></a></td><td>Networking</td><td>Checks connectivity to a host with a 3-packet ping.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/open_ports.sh" target="_blank" rel="noopener"><code>open_ports.sh</code></a></td><td>Networking</td><td>Lists all active listening network ports.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/sys_info.sh" target="_blank" rel="noopener"><code>sys_info.sh</code></a></td><td>System Info</td><td>Prints basic OS and kernel information.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/user_greet.sh" target="_blank" rel="noopener"><code>user_greet.sh</code></a></td><td>Utilities</td><td>Displays the current user and time as a friendly greeting.</td></tr></tbody></table></div>
+<h2>Code samples</h2>
+<h3>sys_info.sh — print OS, kernel and hardware info</h3>
+<pre>#!/bin/bash
+
+# sys_info.sh
+# This script fetches and prints basic system and kernel information.
+
+echo "--- System Information ---"
+
+# 'uname -s' prints the operating system name.
+# 'uname -r' prints the kernel release version.
+# 'uname -m' prints the machine hardware name.
+echo "Operating System: $(uname -s)"
+echo "Kernel Version: $(uname -r)"
+echo "Hardware Architecture: $(uname -m)"
+
+# 'hostname' displays the name of the machine.
+echo "Hostname: $(hostname)"
+
+echo "--------------------------"</pre>
+<h3>open_ports.sh — list listening ports with ss/netstat</h3>
+<pre>#!/bin/bash
+
+# open_ports.sh
+# This script lists currently listening network ports.
+
+echo "--- Active Listening Ports ---"
+
+# Check if 'ss' (Socket Statistics) is available.
+if command -v ss &gt;/dev/null 2&gt;&amp;1; then
+    # '-t' TCP, '-u' UDP, '-l' listening, '-n' numeric.
+    echo "Using 'ss' command:"
+    ss -tuln
+else
+    # Fallback to 'netstat' if 'ss' is missing.
+    echo "Using 'netstat' command:"
+    netstat -tuln
+fi
+
+echo "------------------------------"</pre>
+<h3>python_scripts/list_directory_contents.py</h3>
+<pre>#!/usr/bin/env python3
+import subprocess
+import sys
+
+def main():
+    if sys.platform == "win32":
+        command = ["cmd", "/c", "dir", "/a"]
+    else:
+        command = ["ls", "-la"]
+    
+    print(f"Executing command: {' '.join(command)}")
+    
+    try:
+        result = subprocess.run(command, capture_output=True, text=True, check=True)
+        print("Directory Contents:")
+        print(result.stdout)
+    except subprocess.CalledProcessError as e:
+        print(f"Error executing command: {e}")
+
+if __name__ == "__main__":
+    main()</pre>
+<h2>Related pages</h2>
+<ul><li><a href="kali-network-recon.html">Network reconnaissance scripts</a></li><li><a href="cheatsheet.html">Termux commands cheatsheet</a></li><li><a href="kali-toolkit.html">Back to the Kali Toolkit hub</a></li></ul>
+<p><a class="btn-view" href="https://github.com/krishsharma-code/kali-linux-automation" target="_blank" rel="noopener">View the full toolkit on GitHub</a></p><script>
+(function(){
+  var inp=document.getElementById('scriptFilter');
+  if(!inp) return;
+  inp.addEventListener('keyup',function(){
+    var q=this.value.toLowerCase();
+    document.querySelectorAll('.script-table tbody tr').forEach(function(tr){
+      tr.style.display = tr.innerText.toLowerCase().indexOf(q) > -1 ? '' : 'none';
+    });
+  });
+})();
+</script>
+</article>
+</main>
+<section class="site-map" aria-label="Site map">
+    <h2 class="site-map__title">Explore Termux Hub</h2>
+    <div class="site-map__cols">
+        <div>
+            <h3>Kali Toolkit</h3>
+            <a href="kali-toolkit.html">Toolkit home (145 scripts)</a>
+            <a href="kali-linux-foundations.html">Foundations</a>
+            <a href="kali-network-recon.html">Network recon</a>
+            <a href="kali-defensive-monitoring.html">Defensive monitoring</a>
+            <a href="kali-vulnerability-scanning.html">Vulnerability scanning</a>
+            <a href="kali-enumeration.html">Enumeration</a>
+            <a href="kali-system-hardening.html">System hardening</a>
+        </div>
+        <div>
+            <h3>Termux tool guides</h3>
+            <a href="apache.html">Apache</a>
+<a href="brutus.html">Brutus</a>
+<a href="cloudflare.html">Cloudflare</a>
+<a href="cool-commands.html">Cool Commands</a>
+<a href="cpp.html">Cpp</a>
+<a href="findomain.html">Findomain</a>
+<a href="fsociety.html">Fsociety</a>
+<a href="geo-recon.html">Geo Recon</a>
+<a href="ghost-eye.html">Ghost Eye</a>
+<a href="hacktronian.html">Hacktronian</a>
+<a href="ipicker.html">Ipicker</a>
+<a href="javascript.html">Javascript</a>
+<a href="john.html">John</a>
+<a href="local-server.html">Local Server</a>
+<a href="manjaro.html">Manjaro</a>
+<a href="naabu.html">Naabu</a>
+<a href="ncat.html">Ncat</a>
+<a href="nmap.html">Nmap</a>
+<a href="nordvpn.html">Nordvpn</a>
+<a href="onex.html">Onex</a>
+<a href="pydictor.html">Pydictor</a>
+<a href="python.html">Python</a>
+<a href="quasar.html">Quasar</a>
+<a href="recondog.html">Recondog</a>
+<a href="subfinder.html">Subfinder</a>
+<a href="termux-banner.html">Termux Banner</a>
+<a href="ubuntu-gui.html">Ubuntu Gui</a>
+<a href="wafw00f.html">Wafw00F</a>
+<a href="web-recon.html">Web Recon</a>
+        </div>
+        <div>
+            <h3>Learn</h3>
+            <a href="index.html">Home</a>
+            <a href="cheatsheet.html">Termux cheatsheet</a>
+            <a href="python.html">Python</a>
+            <a href="javascript.html">JavaScript</a>
+            <a href="cpp.html">C++</a>
+            <a href="cool-commands.html">Cool Termux commands</a>
+            <a href="index.html#about">About Termux Hub</a>
+        </div>
+    </div>
+</section>
+<footer>
+    <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
+    <p>Educational resource for ethical security professionals and students. Only test systems you own or have explicit written permission to test.</p>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

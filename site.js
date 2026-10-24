@@ -140,6 +140,7 @@
       side.innerHTML =
         '<a href="index.html">[[ HOME ]]</a>' +
         '<a href="cheatsheet.html">[[ CHEATSHEET ]]</a>' +
+        '<a href="kali-toolkit.html">[[ KALI TOOLKIT ]]</a>' +
         '<a href="index.html#about">[[ ABOUT ]]</a>';
       d.body.appendChild(side);
     }

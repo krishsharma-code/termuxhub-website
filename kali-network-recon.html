@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Network Reconnaissance Scripts for Kali Linux (Ping Sweep, Nmap, DNS) | Termux Hub</title>
+<meta name="description" content="Network reconnaissance scripts for Kali Linux: threaded ping sweeps, Nmap wrappers, port scanners, banner grabbing, DNS enumeration, HTTP header analysis and SSL certificate checks.">
+<meta name="keywords" content="network reconnaissance scripts, ping sweep python, nmap automation bash, dns enumeration script, kali recon tools">
+<meta name="author" content="Krish Sharma">
+<meta name="theme-color" content="#10b981">
+<link rel="canonical" href="https://krishsharma-code.github.io/termuxhub-website/kali-network-recon.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Termux Hub">
+<meta property="og:title" content="Network Reconnaissance Scripts for Kali Linux (Ping Sweep, Nmap, DNS) | Termux Hub">
+<meta property="og:description" content="Network reconnaissance scripts for Kali Linux: threaded ping sweeps, Nmap wrappers, port scanners, banner grabbing, DNS enumeration, HTTP header analysis and SSL certificate checks.">
+<meta property="og:url" content="https://krishsharma-code.github.io/termuxhub-website/kali-network-recon.html">
+<meta property="og:image" content="https://krishsharma-code.github.io/termuxhub-website/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Network Reconnaissance Scripts for Kali Linux (Ping Sweep, Nmap, DNS) | Termux Hub">
+<meta name="twitter:description" content="Network reconnaissance scripts for Kali Linux: threaded ping sweeps, Nmap wrappers, port scanners, banner grabbing, DNS enumeration, HTTP header analysis and SSL certificate checks.">
+<meta name="twitter:image" content="https://krishsharma-code.github.io/termuxhub-website/og-image.png">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="astra-theme.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Kali Network Reconnaissance Scripts \u2014 Ping Sweeps, Port Scans & Web Recon", "description": "Network reconnaissance scripts for Kali Linux: threaded ping sweeps, Nmap wrappers, port scanners, banner grabbing, DNS enumeration, HTTP header analysis and SSL certificate checks.", "url": "https://krishsharma-code.github.io/termuxhub-website/kali-network-recon.html", "isPartOf": {"@type": "WebSite", "name": "Termux Hub", "url": "https://krishsharma-code.github.io/termuxhub-website/"}}</script>
+</head>
+<body>
+<header>
+    <div class="logo">TERMUX HUB</div>
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="cheatsheet.html">CHEATSHEET</a>
+        <a href="kali-toolkit.html">KALI TOOLKIT</a>
+        <a href="index.html#about">ABOUT</a>
+        <button id="installAppBtn" style="display:none;background:#10b981;color:var(--text-color);border:none;padding:8px 15px;border-radius:20px;cursor:pointer;font-weight:bold;margin-left:10px;">&#11015;&#65039; Install App</button><button id="theme-toggle" style="background:#10b981;color:var(--text-color);border:none;padding:8px 15px;border-radius:20px;cursor:pointer;font-weight:bold;margin-left:10px;">&#127763; Theme</button>
+    </nav>
+    <div id="google_translate_element"></div>
+</header>
+<div class="tool-banner"><div class="tool-banner-title">Kali · Network Recon</div><p>Termux Hub &middot; Kali Linux</p></div>
+<main>
+<article>
+<h1>Kali Network Reconnaissance Scripts — Ping Sweeps, Port Scans &amp; Web Recon</h1>
+<p>Reconnaissance scripts — ping sweeps, port scans, banner grabbing, DNS enumeration, HTTP header analysis, subdomain testing and SSL certificate checks. Use them only against networks you own or have explicit written permission to test.</p>
+<input type="text" id="scriptFilter" class="script-filter" placeholder="&#128269; Filter scripts in this module...">
+<h2>Kali · Network Recon &mdash; script list</h2>
+<div class="table-wrap"><table class="cheatsheet-table script-table"><thead><tr><th>Script</th><th>Category</th><th>What it does</th></tr></thead><tbody><tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/nmap_subprocess_wrapper.py" target="_blank" rel="noopener"><code>nmap_subprocess_wrapper.py</code></a></td><td>Network Recon</td><td>Runs and parses basic Nmap scans via `subprocess`.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/socket_banner_grabber.py" target="_blank" rel="noopener"><code>socket_banner_grabber.py</code></a></td><td>Network Recon</td><td>Low-level socket connection to grab service banners.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/ping_sweep_threaded.py" target="_blank" rel="noopener"><code>ping_sweep_threaded.py</code></a></td><td>Network Recon</td><td>Multi-threaded ping sweep for subnet host discovery.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/mac_address_vendor.py" target="_blank" rel="noopener"><code>mac_address_vendor.py</code></a></td><td>Network Recon</td><td>OUI-based MAC address vendor lookup (mock dataset).</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/local_network_mapper.py" target="_blank" rel="noopener"><code>local_network_mapper.py</code></a></td><td>Network Recon</td><td>Simulates mapping the devices on a local subnet.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/ping_sweeper.py" target="_blank" rel="noopener"><code>ping_sweeper.py</code></a></td><td>Network Recon</td><td>Uses `subprocess` to find live hosts across a /24 subnet.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/basic_port_scanner.py" target="_blank" rel="noopener"><code>basic_port_scanner.py</code></a></td><td>Network Recon</td><td>Socket-based TCP scan of common ports.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/banner_grabber.py" target="_blank" rel="noopener"><code>banner_grabber.py</code></a></td><td>Network Recon</td><td>Connects to ports and retrieves service banners.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/nmap_xml_parser.py" target="_blank" rel="noopener"><code>nmap_xml_parser.py</code></a></td><td>Network Recon</td><td>Extracts open ports and services from Nmap XML output.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/mac_address_vendor_lookup.py" target="_blank" rel="noopener"><code>mac_address_vendor_lookup.py</code></a></td><td>Network Recon</td><td>Resolves device vendors from MAC addresses via lookup APIs.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/requests_fuzzer.py" target="_blank" rel="noopener"><code>requests_fuzzer.py</code></a></td><td>Web Recon</td><td>Basic directory fuzzing with the `requests` library.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/subdomain_bruteforce.py" target="_blank" rel="noopener"><code>subdomain_bruteforce.py</code></a></td><td>Web Recon</td><td>Tests a subdomain wordlist against a target domain.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/http_header_analyzer.py" target="_blank" rel="noopener"><code>http_header_analyzer.py</code></a></td><td>Web Recon</td><td>Extracts server info and security headers.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/robots_txt_parser.py" target="_blank" rel="noopener"><code>robots_txt_parser.py</code></a></td><td>Web Recon</td><td>Fetches and parses disallowed paths from `robots.txt`.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/web_crawler_basic.py" target="_blank" rel="noopener"><code>web_crawler_basic.py</code></a></td><td>Web Recon</td><td>Extracts all `href` links from a webpage.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/http_header_inspector.py" target="_blank" rel="noopener"><code>http_header_inspector.py</code></a></td><td>Web Recon</td><td>Pulls HTTP headers to fingerprint server versions.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/robots_txt_scraper.py" target="_blank" rel="noopener"><code>robots_txt_scraper.py</code></a></td><td>Web Recon</td><td>Downloads and parses `robots.txt` to surface hidden paths.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/subdomain_bruteforcer_mock.py" target="_blank" rel="noopener"><code>subdomain_bruteforcer_mock.py</code></a></td><td>Web Recon</td><td>Wordlist-driven subdomain testing (mock resolver).</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/ssl_cert_checker.py" target="_blank" rel="noopener"><code>ssl_cert_checker.py</code></a></td><td>Web Recon</td><td>Reads an SSL/TLS certificate's details and expiry date.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/directory_fuzzer_lite.py" target="_blank" rel="noopener"><code>directory_fuzzer_lite.py</code></a></td><td>Web Recon</td><td>Probes common admin/login paths for `200 OK` responses.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/netstat_active_ports.sh" target="_blank" rel="noopener"><code>netstat_active_ports.sh</code></a></td><td>Network Recon</td><td>Filters `netstat` output for `LISTEN`-state services.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/ss_monitor.sh" target="_blank" rel="noopener"><code>ss_monitor.sh</code></a></td><td>Network Recon</td><td>Socket statistics via the `ss` command.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/nmap_fast_scan.sh" target="_blank" rel="noopener"><code>nmap_fast_scan.sh</code></a></td><td>Network Recon</td><td>Automates a fast-mode Nmap scan against a target.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/route_tracer.sh" target="_blank" rel="noopener"><code>route_tracer.sh</code></a></td><td>Network Recon</td><td>Path discovery using `traceroute`.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/arp_table_reader.sh" target="_blank" rel="noopener"><code>arp_table_reader.sh</code></a></td><td>Network Recon</td><td>Formats and displays the local ARP cache.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/quick_nmap_scan.sh" target="_blank" rel="noopener"><code>quick_nmap_scan.sh</code></a></td><td>Network Recon</td><td>Fast scan of the top 100 common ports.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/full_tcp_syn_scan.sh" target="_blank" rel="noopener"><code>full_tcp_syn_scan.sh</code></a></td><td>Network Recon</td><td>Stealthy SYN scan across all 65,535 ports.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/dns_enumeration.sh" target="_blank" rel="noopener"><code>dns_enumeration.sh</code></a></td><td>Network Recon</td><td>Forward and reverse DNS lookup automation.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/arp_discovery.sh" target="_blank" rel="noopener"><code>arp_discovery.sh</code></a></td><td>Network Recon</td><td>Identifies local devices using ARP requests.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/ssl_cert_checker.sh" target="_blank" rel="noopener"><code>ssl_cert_checker.sh</code></a></td><td>Network Recon</td><td>Checks SSL certificate expiry and details.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/nmap_quick_scan_wrapper.sh" target="_blank" rel="noopener"><code>nmap_quick_scan_wrapper.sh</code></a></td><td>Enumeration</td><td>Automates an Nmap fast scan and writes clean results to a file.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/dns_enum_tool.sh" target="_blank" rel="noopener"><code>dns_enum_tool.sh</code></a></td><td>Enumeration</td><td>Extracts A, MX, and TXT records with `host` and `dig`.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/whois_ip_lookup.sh" target="_blank" rel="noopener"><code>whois_ip_lookup.sh</code></a></td><td>Enumeration</td><td>Runs `whois` across a list of IPs for organisational data.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/ping_sweep_subnet.sh" target="_blank" rel="noopener"><code>ping_sweep_subnet.sh</code></a></td><td>Enumeration</td><td>Simple loop to ping every host in a /24 subnet.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/banner_grabber_netcat.sh" target="_blank" rel="noopener"><code>banner_grabber_netcat.sh</code></a></td><td>Enumeration</td><td>Uses `nc` to connect to a port and grab its banner.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/curl_header_grabber.sh" target="_blank" rel="noopener"><code>curl_header_grabber.sh</code></a></td><td>Web Recon</td><td>Fast `curl` one-liner to inspect response headers.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/gobuster_automator.sh" target="_blank" rel="noopener"><code>gobuster_automator.sh</code></a></td><td>Web Recon</td><td>Automates a `gobuster` dir scan with standard wordlists.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/nikto_fast_scan.sh" target="_blank" rel="noopener"><code>nikto_fast_scan.sh</code></a></td><td>Web Recon</td><td>Wrapper to run the Nikto web scanner.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/wget_mirror.sh" target="_blank" rel="noopener"><code>wget_mirror.sh</code></a></td><td>Web Recon</td><td>Downloads and mirrors a basic website.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/whois_dns_lookup.sh" target="_blank" rel="noopener"><code>whois_dns_lookup.sh</code></a></td><td>Web Recon</td><td>Combines `whois`, `dig`, and `nslookup` for full target info.</td></tr></tbody></table></div>
+<h2>Code samples</h2>
+<h3>nmap_fast_scan.sh — automate a fast Nmap scan</h3>
+<pre>#!/bin/bash
+
+# nmap_fast_scan.sh
+# Concept: Automating a fast Nmap scan via Bash
+
+TARGET=$1
+
+if [ -z "$TARGET" ]; then
+    echo "Usage: $0 &lt;target_ip&gt;"
+    exit 0
+fi
+
+echo "[*] Initializing fast scan on $TARGET..."
+echo "[*] Command: nmap -F $TARGET"
+
+# -F scans top 100 ports
+nmap -F "$TARGET"
+
+echo "[+] Fast scan finalized."</pre>
+<h3>ping_sweep_threaded.py — threaded ping sweep</h3>
+<pre>#!/usr/bin/env python3
+import subprocess
+import threading
+from queue import Queue
+
+# ping_sweep_threaded.py
+# Concept: Using Multi-threading to speed up network reconnaissance
+
+# Thread-safe queue to hold IP addresses
+queue = Queue()
+
+def pinger():
+    while True:
+        # Get an IP from the queue
+        ip = queue.get()
+        if ip is None:
+            break
+        
+        # Run ping command (1 packet, 1 second timeout)
+        # On Windows it's 'ping -n 1', on Linux it's 'ping -c 1'
+        # We assume a Linux environment (Kali)
+        try:
+            res = subprocess.run(['ping', '-c', '1', '-W', '1', ip], 
+                                 stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            if res.returncode == 0:
+                print(f"[+] {ip} is UP")
+        except Exception:
+            pass
+            
+        queue.task_done()
+
+def start_sweep(subnet):
+    print(f"[*] Starting threaded ping sweep on {subnet}.0/24...")
+    
+    # Spawn 50 worker threads
+    for _ in range(50):
+        t = threading.Thread(target=pinger)
+        t.daemon = True
+        t.start()
+
+    # Add IPs 1-254 to the queue
+    for i in range(1, 255):
+        queue.put(f"{subnet}.{i}")
+
+    queue.join()
+    print("[*] Sweep complete.")
+
+if __name__ == "__main__":
+    import sys
+    if "-h" in sys.argv or "--help" in sys.argv:
+        print("Usage: python3 ping_sweep_threaded.py")
+        print("Threaded ping sweep of a /24 subnet (interactive prompt).")
+        sys.exit(0)
+    base_ip = input("Enter first three octets (e.g., 192.168.1): ") or "192.168.1"
+    start_sweep(base_ip)
+    # Stop the threads
+    for _ in range(50):
+        queue.put(None)</pre>
+<h2>Related pages</h2>
+<ul><li><a href="kali-enumeration.html">Local &amp; network enumeration</a></li><li><a href="kali-vulnerability-scanning.html">Vulnerability scanning</a></li><li><a href="nmap.html">Nmap guide for Termux</a></li></ul>
+<p><a class="btn-view" href="https://github.com/krishsharma-code/kali-linux-automation" target="_blank" rel="noopener">View the full toolkit on GitHub</a></p><script>
+(function(){
+  var inp=document.getElementById('scriptFilter');
+  if(!inp) return;
+  inp.addEventListener('keyup',function(){
+    var q=this.value.toLowerCase();
+    document.querySelectorAll('.script-table tbody tr').forEach(function(tr){
+      tr.style.display = tr.innerText.toLowerCase().indexOf(q) > -1 ? '' : 'none';
+    });
+  });
+})();
+</script>
+</article>
+</main>
+<section class="site-map" aria-label="Site map">
+    <h2 class="site-map__title">Explore Termux Hub</h2>
+    <div class="site-map__cols">
+        <div>
+            <h3>Kali Toolkit</h3>
+            <a href="kali-toolkit.html">Toolkit home (145 scripts)</a>
+            <a href="kali-linux-foundations.html">Foundations</a>
+            <a href="kali-network-recon.html">Network recon</a>
+            <a href="kali-defensive-monitoring.html">Defensive monitoring</a>
+            <a href="kali-vulnerability-scanning.html">Vulnerability scanning</a>
+            <a href="kali-enumeration.html">Enumeration</a>
+            <a href="kali-system-hardening.html">System hardening</a>
+        </div>
+        <div>
+            <h3>Termux tool guides</h3>
+            <a href="apache.html">Apache</a>
+<a href="brutus.html">Brutus</a>
+<a href="cloudflare.html">Cloudflare</a>
+<a href="cool-commands.html">Cool Commands</a>
+<a href="cpp.html">Cpp</a>
+<a href="findomain.html">Findomain</a>
+<a href="fsociety.html">Fsociety</a>
+<a href="geo-recon.html">Geo Recon</a>
+<a href="ghost-eye.html">Ghost Eye</a>
+<a href="hacktronian.html">Hacktronian</a>
+<a href="ipicker.html">Ipicker</a>
+<a href="javascript.html">Javascript</a>
+<a href="john.html">John</a>
+<a href="local-server.html">Local Server</a>
+<a href="manjaro.html">Manjaro</a>
+<a href="naabu.html">Naabu</a>
+<a href="ncat.html">Ncat</a>
+<a href="nmap.html">Nmap</a>
+<a href="nordvpn.html">Nordvpn</a>
+<a href="onex.html">Onex</a>
+<a href="pydictor.html">Pydictor</a>
+<a href="python.html">Python</a>
+<a href="quasar.html">Quasar</a>
+<a href="recondog.html">Recondog</a>
+<a href="subfinder.html">Subfinder</a>
+<a href="termux-banner.html">Termux Banner</a>
+<a href="ubuntu-gui.html">Ubuntu Gui</a>
+<a href="wafw00f.html">Wafw00F</a>
+<a href="web-recon.html">Web Recon</a>
+        </div>
+        <div>
+            <h3>Learn</h3>
+            <a href="index.html">Home</a>
+            <a href="cheatsheet.html">Termux cheatsheet</a>
+            <a href="python.html">Python</a>
+            <a href="javascript.html">JavaScript</a>
+            <a href="cpp.html">C++</a>
+            <a href="cool-commands.html">Cool Termux commands</a>
+            <a href="index.html#about">About Termux Hub</a>
+        </div>
+    </div>
+</section>
+<footer>
+    <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
+    <p>Educational resource for ethical security professionals and students. Only test systems you own or have explicit written permission to test.</p>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

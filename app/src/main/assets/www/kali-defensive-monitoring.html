@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Defensive Monitoring Scripts for Kali Linux (Logs, Integrity, Firewall) | Termux Hub</title>
+<meta name="description" content="Defensive monitoring and log analysis scripts for Kali Linux: parse auth logs for failed SSH logins, watch file integrity with SHA-256 hashes, audit cron jobs and check firewall status.">
+<meta name="keywords" content="log analysis script, file integrity monitor, failed ssh login detection, firewall status checker, kali defensive scripts">
+<meta name="author" content="Krish Sharma">
+<meta name="theme-color" content="#10b981">
+<link rel="canonical" href="https://krishsharma-code.github.io/termuxhub-website/kali-defensive-monitoring.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Termux Hub">
+<meta property="og:title" content="Defensive Monitoring Scripts for Kali Linux (Logs, Integrity, Firewall) | Termux Hub">
+<meta property="og:description" content="Defensive monitoring and log analysis scripts for Kali Linux: parse auth logs for failed SSH logins, watch file integrity with SHA-256 hashes, audit cron jobs and check firewall status.">
+<meta property="og:url" content="https://krishsharma-code.github.io/termuxhub-website/kali-defensive-monitoring.html">
+<meta property="og:image" content="https://krishsharma-code.github.io/termuxhub-website/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Defensive Monitoring Scripts for Kali Linux (Logs, Integrity, Firewall) | Termux Hub">
+<meta name="twitter:description" content="Defensive monitoring and log analysis scripts for Kali Linux: parse auth logs for failed SSH logins, watch file integrity with SHA-256 hashes, audit cron jobs and check firewall status.">
+<meta name="twitter:image" content="https://krishsharma-code.github.io/termuxhub-website/og-image.png">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="astra-theme.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Kali Defensive Monitoring & Log Analysis Scripts", "description": "Defensive monitoring and log analysis scripts for Kali Linux: parse auth logs for failed SSH logins, watch file integrity with SHA-256 hashes, audit cron jobs and check firewall status.", "url": "https://krishsharma-code.github.io/termuxhub-website/kali-defensive-monitoring.html", "isPartOf": {"@type": "WebSite", "name": "Termux Hub", "url": "https://krishsharma-code.github.io/termuxhub-website/"}}</script>
+</head>
+<body>
+<header>
+    <div class="logo">TERMUX HUB</div>
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="cheatsheet.html">CHEATSHEET</a>
+        <a href="kali-toolkit.html">KALI TOOLKIT</a>
+        <a href="index.html#about">ABOUT</a>
+        <button id="installAppBtn" style="display:none;background:#10b981;color:var(--text-color);border:none;padding:8px 15px;border-radius:20px;cursor:pointer;font-weight:bold;margin-left:10px;">&#11015;&#65039; Install App</button><button id="theme-toggle" style="background:#10b981;color:var(--text-color);border:none;padding:8px 15px;border-radius:20px;cursor:pointer;font-weight:bold;margin-left:10px;">&#127763; Theme</button>
+    </nav>
+    <div id="google_translate_element"></div>
+</header>
+<div class="tool-banner"><div class="tool-banner-title">Kali · Defensive Monitoring</div><p>Termux Hub &middot; Kali Linux</p></div>
+<main>
+<article>
+<h1>Kali Defensive Monitoring &amp; Log Analysis Scripts</h1>
+<p>Defensive monitoring and log analysis. Parse auth logs for failed SSH logins, watch critical file integrity with SHA-256 hashes, audit cron jobs and firewall rules, and snapshot a system baseline so you can spot exactly what changed.</p>
+<input type="text" id="scriptFilter" class="script-filter" placeholder="&#128269; Filter scripts in this module...">
+<h2>Kali · Defensive Monitoring &mdash; script list</h2>
+<div class="table-wrap"><table class="cheatsheet-table script-table"><thead><tr><th>Script</th><th>Category</th><th>What it does</th></tr></thead><tbody><tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/apache_log_parser.py" target="_blank" rel="noopener"><code>apache_log_parser.py</code></a></td><td>Log Analysis</td><td>Parses server access logs for 404/500 errors.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/failed_login_detector.py" target="_blank" rel="noopener"><code>failed_login_detector.py</code></a></td><td>Log Analysis</td><td>Scans `auth.log` for repeated SSH failures.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/file_integrity_monitor.py" target="_blank" rel="noopener"><code>file_integrity_monitor.py</code></a></td><td>Integrity</td><td>Monitors critical files using SHA-256 hashes.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/active_ports_analyzer.py" target="_blank" rel="noopener"><code>active_ports_analyzer.py</code></a></td><td>Monitoring</td><td>Lists local listening ports and their owning processes.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/resource_spike_alert.py" target="_blank" rel="noopener"><code>resource_spike_alert.py</code></a></td><td>Monitoring</td><td>Watches CPU/RAM usage for anomalies.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/auth_log_parser.py" target="_blank" rel="noopener"><code>auth_log_parser.py</code></a></td><td>Log Analysis</td><td>Counts failed SSH logins from a mock `auth.log`.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/file_integrity_watcher.py" target="_blank" rel="noopener"><code>file_integrity_watcher.py</code></a></td><td>Integrity</td><td>Hashes critical files and alerts on changes.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/malicious_ip_blocker.py" target="_blank" rel="noopener"><code>malicious_ip_blocker.py</code></a></td><td>Defense</td><td>Reads bad IPs and generates UFW block commands.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/suspicious_process_hunter.py" target="_blank" rel="noopener"><code>suspicious_process_hunter.py</code></a></td><td>Monitoring</td><td>Flags processes running from unusual directories like `/tmp`.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/python_scripts/yara_rule_generator.py" target="_blank" rel="noopener"><code>yara_rule_generator.py</code></a></td><td>Signatures</td><td>Generates basic YARA rule syntax for signature matching.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/check_root_privileges.sh" target="_blank" rel="noopener"><code>check_root_privileges.sh</code></a></td><td>Privilege Audit</td><td>Verifies root/sudo escalation rights.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/find_suid_binaries.sh" target="_blank" rel="noopener"><code>find_suid_binaries.sh</code></a></td><td>Privilege Audit</td><td>Locates SUID/SGID files for auditing.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/backup_critical_configs.sh" target="_blank" rel="noopener"><code>backup_critical_configs.sh</code></a></td><td>Backup</td><td>Automates secure backup of `/etc` files.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/ssh_config_auditor.sh" target="_blank" rel="noopener"><code>ssh_config_auditor.sh</code></a></td><td>Hardening</td><td>Audits `sshd_config` against hardening rules.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/firewall_status_checker.sh" target="_blank" rel="noopener"><code>firewall_status_checker.sh</code></a></td><td>Firewall</td><td>Monitors UFW/iptables rules and status.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/active_connections_monitor.sh" target="_blank" rel="noopener"><code>active_connections_monitor.sh</code></a></td><td>Monitoring</td><td>Lists established connections and their PIDs.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/suid_guid_finder.sh" target="_blank" rel="noopener"><code>suid_guid_finder.sh</code></a></td><td>Privilege Audit</td><td>Finds SUID/GUID files to audit privilege-escalation risk.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/firewall_status_check.sh" target="_blank" rel="noopener"><code>firewall_status_check.sh</code></a></td><td>Firewall</td><td>Checks UFW/iptables status and dumps rules to a log.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/cronjob_auditor.sh" target="_blank" rel="noopener"><code>cronjob_auditor.sh</code></a></td><td>Persistence Audit</td><td>Lists scheduled cron jobs to check for persistence.</td></tr>
+<tr><td><a href="https://github.com/krishsharma-code/kali-linux-automation/blob/main/bash_scripts/system_baseline_snapshot.sh" target="_blank" rel="noopener"><code>system_baseline_snapshot.sh</code></a></td><td>Baseline</td><td>Snapshots installed packages and running services.</td></tr></tbody></table></div>
+<h2>Code samples</h2>
+<h3>ssh_config_auditor.sh — audit sshd_config</h3>
+<pre>#!/bin/bash
+# ssh_config_auditor.sh
+# Day 5: Security Auditing &amp; System Defense
+# Description: Audits sshd_config for common security misconfigurations.
+
+SSH_CONFIG="/etc/ssh/sshd_config"
+
+echo "[*] Auditing SSH Daemon Configuration: $SSH_CONFIG"
+echo "--------------------------------------------------------"
+
+if [ ! -f "$SSH_CONFIG" ]; then
+    echo "[!] SSH config not found at $SSH_CONFIG - skipping audit."
+    exit 0
+fi
+
+# Function to check specific settings
+check_setting() {
+    local setting=$1
+    local expected=$2
+    local actual=$(grep "^$setting" "$SSH_CONFIG" | awk '{print $2}')
+    
+    if [ -z "$actual" ]; then
+        echo "[WARNING] $setting is not explicitly set (using default)."
+    elif [ "$actual" == "$expected" ]; then
+        echo "[OK] $setting is set to $actual."
+    else
+        echo "[!!!] RISK DETECTED: $setting is set to $actual (Recommended: $expected)."
+    fi
+}
+
+check_setting "PermitRootLogin" "no"
+check_setting "PasswordAuthentication" "no"
+check_setting "PubkeyAuthentication" "yes"
+check_setting "MaxAuthTries" "3"
+check_setting "PermitEmptyPasswords" "no"
+
+echo "--------------------------------------------------------"
+echo "[*] SSH Audit complete. Follow best practices to harden your gateway."</pre>
+<h3>file_integrity_monitor.sh — SHA-256 integrity check</h3>
+<pre>#!/bin/bash
+# file_integrity_monitor.sh - Checks hashes of critical system files.
+# Day 9: Forensics and Hardening
+
+HASH_DB="/tmp/sys_file_hashes.db"
+CRITICAL_FILES=("/etc/passwd" "/etc/shadow" "/etc/sudoers" "/usr/bin/ssh")
+
+generate_hashes() {
+    echo "Initializing Hash Database..."
+    for file in "${CRITICAL_FILES[@]}"; do
+        if [ -f "$file" ]; then
+            sha256sum "$file" &gt;&gt; "$HASH_DB"
+        fi
+    done
+}
+
+verify_integrity() {
+    echo "Starting Integrity Verification..."
+    if [ ! -f "$HASH_DB" ]; then
+        generate_hashes
+        return
+    fi
+
+    sha256sum -c "$HASH_DB" --status
+    if [ $? -eq 0 ]; then
+        echo "[OK] All critical files are intact."
+    else
+        echo "[ALERT] Integrity Violation Detected! Check /var/log/syslog."
+        sha256sum -c "$HASH_DB" | grep "FAILED"
+    fi
+}
+
+verify_integrity</pre>
+<h2>Related pages</h2>
+<ul><li><a href="kali-system-hardening.html">System hardening scripts</a></li><li><a href="kali-vulnerability-scanning.html">Vulnerability scanning &amp; forensics</a></li><li><a href="kali-toolkit.html">Back to the Kali Toolkit hub</a></li></ul>
+<p><a class="btn-view" href="https://github.com/krishsharma-code/kali-linux-automation" target="_blank" rel="noopener">View the full toolkit on GitHub</a></p><script>
+(function(){
+  var inp=document.getElementById('scriptFilter');
+  if(!inp) return;
+  inp.addEventListener('keyup',function(){
+    var q=this.value.toLowerCase();
+    document.querySelectorAll('.script-table tbody tr').forEach(function(tr){
+      tr.style.display = tr.innerText.toLowerCase().indexOf(q) > -1 ? '' : 'none';
+    });
+  });
+})();
+</script>
+</article>
+</main>
+<section class="site-map" aria-label="Site map">
+    <h2 class="site-map__title">Explore Termux Hub</h2>
+    <div class="site-map__cols">
+        <div>
+            <h3>Kali Toolkit</h3>
+            <a href="kali-toolkit.html">Toolkit home (145 scripts)</a>
+            <a href="kali-linux-foundations.html">Foundations</a>
+            <a href="kali-network-recon.html">Network recon</a>
+            <a href="kali-defensive-monitoring.html">Defensive monitoring</a>
+            <a href="kali-vulnerability-scanning.html">Vulnerability scanning</a>
+            <a href="kali-enumeration.html">Enumeration</a>
+            <a href="kali-system-hardening.html">System hardening</a>
+        </div>
+        <div>
+            <h3>Termux tool guides</h3>
+            <a href="apache.html">Apache</a>
+<a href="brutus.html">Brutus</a>
+<a href="cloudflare.html">Cloudflare</a>
+<a href="cool-commands.html">Cool Commands</a>
+<a href="cpp.html">Cpp</a>
+<a href="findomain.html">Findomain</a>
+<a href="fsociety.html">Fsociety</a>
+<a href="geo-recon.html">Geo Recon</a>
+<a href="ghost-eye.html">Ghost Eye</a>
+<a href="hacktronian.html">Hacktronian</a>
+<a href="ipicker.html">Ipicker</a>
+<a href="javascript.html">Javascript</a>
+<a href="john.html">John</a>
+<a href="local-server.html">Local Server</a>
+<a href="manjaro.html">Manjaro</a>
+<a href="naabu.html">Naabu</a>
+<a href="ncat.html">Ncat</a>
+<a href="nmap.html">Nmap</a>
+<a href="nordvpn.html">Nordvpn</a>
+<a href="onex.html">Onex</a>
+<a href="pydictor.html">Pydictor</a>
+<a href="python.html">Python</a>
+<a href="quasar.html">Quasar</a>
+<a href="recondog.html">Recondog</a>
+<a href="subfinder.html">Subfinder</a>
+<a href="termux-banner.html">Termux Banner</a>
+<a href="ubuntu-gui.html">Ubuntu Gui</a>
+<a href="wafw00f.html">Wafw00F</a>
+<a href="web-recon.html">Web Recon</a>
+        </div>
+        <div>
+            <h3>Learn</h3>
+            <a href="index.html">Home</a>
+            <a href="cheatsheet.html">Termux cheatsheet</a>
+            <a href="python.html">Python</a>
+            <a href="javascript.html">JavaScript</a>
+            <a href="cpp.html">C++</a>
+            <a href="cool-commands.html">Cool Termux commands</a>
+            <a href="index.html#about">About Termux Hub</a>
+        </div>
+    </div>
+</section>
+<footer>
+    <p>&copy; 2026 TERMUX HUB. All rights reserved.</p>
+    <p>Educational resource for ethical security professionals and students. Only test systems you own or have explicit written permission to test.</p>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>
