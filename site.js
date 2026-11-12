@@ -262,3 +262,75 @@
     markActive();
   });
 })();
+
+/* ==========================================================================
+   Termux Hub — Google Analytics 4 (GA4)
+   --------------------------------------------------------------------------
+   SETUP: paste your GA4 Measurement ID between the quotes below.
+   Where to get it: analytics.google.com > Admin > Data streams > (your web
+   stream) > "Measurement ID". It looks like G-XXXXXXXXXX.
+
+   While the ID is empty, analytics stays completely off: no script is
+   downloaded, no data is sent, no console errors.
+
+   SECURITY: a GA4 Measurement ID is public by design (it is visible in the
+   page source of every site that uses GA4) — it is NOT a secret. Never put a
+   Measurement Protocol API secret, a service-account key or any other
+   credential in this file, because everything here is public.
+   ========================================================================== */
+(function () {
+  "use strict";
+
+  var GA_ID = "";                                   /* <-- paste G-XXXXXXXXXX here */
+
+  if (!/^G-[A-Z0-9]{6,}$/.test(GA_ID)) { return; }   /* not configured yet  */
+  if (location.protocol === "file:") { return; }     /* Android app bundle  */
+  if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) { return; }
+
+  var d = document, w = window;
+
+  var s = d.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA_ID);
+  d.head.appendChild(s);
+
+  w.dataLayer = w.dataLayer || [];
+  w.gtag = w.gtag || function () { w.dataLayer.push(arguments); };
+  w.gtag("js", new Date());
+  w.gtag("config", GA_ID, { send_page_view: true });
+
+  var page = (location.pathname.split("/").pop() || "index.html").replace(/\.html$/, "");
+
+  function track(name, params) {
+    try {
+      var p = params || {};
+      p.page_name = page;
+      w.gtag("event", name, p);
+    } catch (e) { /* analytics must never break the page */ }
+  }
+
+  d.addEventListener("click", function (e) {
+    var el = e.target;
+    if (!el || !el.closest) { return; }
+    if (el.closest(".copy-label")) { track("copy_command"); }
+    if (el.closest("#theme-toggle")) {
+      track("theme_toggle", { theme: d.body.classList.contains("dark-mode") ? "dark" : "light" });
+    }
+    var a = el.closest("a");
+    if (a && a.hostname && a.hostname !== location.hostname) {
+      track("outbound_click", { link_domain: a.hostname, link_url: a.href });
+    }
+  }, true);
+
+  var deepRead = false;
+  w.addEventListener("scroll", function () {
+    if (deepRead) { return; }
+    var h = d.documentElement;
+    if ((h.scrollTop + w.innerHeight) / h.scrollHeight > 0.9) {
+      deepRead = true;
+      track("read_90");
+    }
+  }, { passive: true });
+
+  w.addEventListener("appinstalled", function () { track("pwa_install"); });
+})();
