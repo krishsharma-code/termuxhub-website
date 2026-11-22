@@ -16,7 +16,7 @@
    nothing breaks, no requests are made.
    ========================================================================== */
 window.TERMUXHUB_TRACKING = {
-  ga4: "",      /* e.g. "G-ABC123XYZ" */
+  ga4: "G-R1Z9MCKL2Y",   /* Termux Hub web stream */
   adsense: ""   /* e.g. "ca-pub-1234567890123456" */
 };
 
