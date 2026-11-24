@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://krishsharma-code.github.io/termuxhub-website/sitemap.xml
+Sitemap: https://krishsharma-code.github.io/termuxhub-website/my_sitemap.xml
